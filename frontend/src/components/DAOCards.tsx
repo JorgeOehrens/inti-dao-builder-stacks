@@ -51,6 +51,7 @@ function DAOCards() {
           };
 
           const result = await callReadOnlyFunction(options);
+          console.log(result);
           fetchedResults.push(result);
         } catch (error) {
           console.error(`Error fetching data for DAO index ${i}:`, error);

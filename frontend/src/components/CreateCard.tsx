@@ -5,15 +5,14 @@ import {
   standardPrincipalCV,
   cvToString,
 } from "@stacks/transactions";
-import { StacksTestnet } from "@stacks/network"; // Usa StacksTestnet para la testnet
+import { StacksTestnet } from "@stacks/network";
 
 function CreateCard() {
   const appConfig = new AppConfig(["publish_data"]);
   const [currentMessage, setCurrentMessage] = useState("");
   const userSession = new UserSession({ appConfig });
   const [loggedIn, setLoggedIn] = useState(false);
-  const network = new StacksTestnet(); // Cambiado a StacksTestnet para la testnet
-
+  const network = new StacksTestnet();
   useEffect(() => {
     if (userSession.isSignInPending()) {
       userSession.handlePendingSignIn().then(() => {

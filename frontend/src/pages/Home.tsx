@@ -87,56 +87,6 @@ function App() {
 
       <DAOCards />
 
-      <h1 className="text-6xl font-black text-center text-indigo-600">
-        Test contract
-      </h1>
-
-      {!userData && (
-        <button
-          className="p-4 bg-indigo-500 rounded text-white text-lg shadow-lg"
-          onClick={connectWallet}
-        >
-          Connect Wallet
-        </button>
-      )}
-
-      {userData && (
-        <div className="flex flex-col gap-4 items-center max-w-md w-full">
-          <input
-            className="p-4 border border-indigo-500 rounded w-full text-lg shadow-sm"
-            placeholder="Write message here..."
-            onChange={handleMessageChange}
-            value={message}
-          />
-          <button
-            className="p-4 bg-indigo-500 rounded text-white text-lg shadow-lg w-full"
-            onClick={submitMessage}
-          >
-            Submit New Message
-          </button>
-        </div>
-      )}
-
-      <div className="flex flex-col gap-4 items-center max-w-md w-full">
-        <input
-          className="p-4 border border-indigo-500 rounded w-full text-lg shadow-sm"
-          placeholder="Paste transaction ID to look up message"
-          onChange={handleTransactionChange}
-          value={transactionId}
-        />
-        <button
-          className="p-4 bg-indigo-500 rounded text-white text-lg shadow-lg w-full"
-          onClick={retrieveMessage}
-        >
-          Retrieve Message
-        </button>
-      </div>
-
-      {currentMessage.length > 0 && (
-        <p className="text-2xl text-center text-indigo-700">{currentMessage}</p>
-      )}
-
-      {/* Footer Section */}
       <Footer />
     </div>
   );

@@ -1,21 +1,41 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const daoTypes = [
-  { id: 1, name: 'Protocol DAOs', description: 'Manages decentralized protocols like Uniswap DAO.' },
-  { id: 2, name: 'Investment DAOs', description: 'Investment groups that pool funds for projects.' },
-  { id: 3, name: 'Grant DAOs', description: 'DAOs that distribute grants to community projects.' },
-  { id: 4, name: 'Collector DAOs', description: 'Acquires and showcases valuable digital assets.' },
-  { id: 5, name: 'Social DAOs', description: 'Builds communities around shared goals or interests.' },
+  {
+    id: 1,
+    name: "Protocol DAOs",
+    description: "Manages decentralized protocols like Uniswap DAO.",
+  },
+  {
+    id: 2,
+    name: "Investment DAOs",
+    description: "Investment groups that pool funds for projects.",
+  },
+  {
+    id: 3,
+    name: "Grant DAOs",
+    description: "DAOs that distribute grants to community projects.",
+  },
+  {
+    id: 4,
+    name: "Collector DAOs",
+    description: "Acquires and showcases valuable digital assets.",
+  },
+  {
+    id: 5,
+    name: "Social DAOs",
+    description: "Builds communities around shared goals or interests.",
+  },
 ];
 
 function SelectDaoType() {
-  const [selectedDaoType, setSelectedDaoType] = useState(null);
+  const [selectedDaoType, setSelectedDaoType] = useState<number | null>(null); // Change type to `number | null`
   const navigate = useNavigate();
 
   const handleNext = () => {
     if (selectedDaoType) {
-      navigate('/describe-dao');
+      navigate("/describe-dao");
     }
   };
 
@@ -27,7 +47,7 @@ function SelectDaoType() {
           <div
             key={dao.id}
             className={`p-4 border rounded-lg cursor-pointer ${
-              selectedDaoType === dao.id ? 'border-blue-500' : 'border-gray-300'
+              selectedDaoType === dao.id ? "border-blue-500" : "border-gray-300"
             }`}
             onClick={() => setSelectedDaoType(dao.id)}
           >

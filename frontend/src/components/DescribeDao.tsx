@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function DescribeDao() {
-  const [name, setName] = useState('');
-  const [subdomain, setSubdomain] = useState('');
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState("");
+  const [subdomain, setSubdomain] = useState("");
+  const [description, setDescription] = useState("");
   const navigate = useNavigate();
 
   const handleNext = () => {
-    navigate('/define-membership');
+    navigate("/define-membership");
   };
 
   return (
@@ -40,7 +40,10 @@ function DescribeDao() {
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-      <button onClick={handleNext} className="bg-blue-500 text-white px-4 py-2 rounded-lg">
+      <button
+        onClick={handleNext}
+        className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+      >
         Next
       </button>
     </div>

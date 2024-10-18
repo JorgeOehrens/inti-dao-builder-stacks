@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function DefineMembership() {
-  const [name, setName] = useState('');
-  const [symbol, setSymbol] = useState('');
+  const [name, setName] = useState("");
+  const [symbol, setSymbol] = useState("");
   const [tokens, setTokens] = useState(1);
-  const [allocation, setAllocation] = useState(100);
+  const [allocation] = useState(100);
   const navigate = useNavigate(); // Use navigate from React Router
 
   const handleNext = () => {
     // Perform any validation or logic if needed before navigating
-    navigate('/select-governance'); // Navigate to the next step
+    navigate("/select-governance"); // Navigate to the next step
   };
 
   return (
@@ -19,7 +19,10 @@ function DefineMembership() {
 
       {/* Name Field */}
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="name">
+        <label
+          className="block text-gray-700 text-sm font-semibold mb-2"
+          htmlFor="name"
+        >
           Name
         </label>
         <input
@@ -30,12 +33,17 @@ function DefineMembership() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <small className="text-gray-500">The full name of the token. Example: Uniswap</small>
+        <small className="text-gray-500">
+          The full name of the token. Example: Uniswap
+        </small>
       </div>
 
       {/* Symbol Field */}
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="symbol">
+        <label
+          className="block text-gray-700 text-sm font-semibold mb-2"
+          htmlFor="symbol"
+        >
           Symbol
         </label>
         <input
@@ -46,13 +54,18 @@ function DefineMembership() {
           value={symbol}
           onChange={(e) => setSymbol(e.target.value)}
         />
-        <small className="text-gray-500">The abbreviation of the token. Example: UNI</small>
+        <small className="text-gray-500">
+          The abbreviation of the token. Example: UNI
+        </small>
       </div>
 
       {/* Distribute Tokens */}
       <h2 className="text-xl font-semibold mt-6 mb-4">Distribute Tokens</h2>
       <div className="bg-gray-100 p-4 rounded-md mb-4">
-        <p className="text-gray-600 mb-2">Your connected wallet was automatically added to the distribution list.</p>
+        <p className="text-gray-600 mb-2">
+          Your connected wallet was automatically added to the distribution
+          list.
+        </p>
 
         {/* Wallet Details */}
         <div className="flex items-center justify-between p-2 bg-white rounded shadow-sm mb-2">
@@ -85,10 +98,16 @@ function DefineMembership() {
 
       {/* Navigation Buttons */}
       <div className="flex justify-between">
-        <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md" onClick={() => console.log('Back')}>
+        <button
+          className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md"
+          onClick={() => console.log("Back")}
+        >
           Back
         </button>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-md" onClick={handleNext}>
+        <button
+          className="bg-blue-500 text-white px-4 py-2 rounded-md"
+          onClick={handleNext}
+        >
           Next
         </button>
       </div>

@@ -5,7 +5,6 @@
 
 (define-constant contract-owner tx-sender)
 
-(use-trait ft-trait 'SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8QJ5SVTE.sip-010-trait-ft-standard.sip-010-trait)
 
 (define-map listings-daos uint
 {
@@ -15,13 +14,6 @@
 
 (define-data-var listing-nonce uint u0)
 
-(define-private (transfer-ft
-  (token-contract <ft-trait>)
-  (amount uint)
-  (sender principal)
-  (recipient principal))
-  (contract-call? token-contract transfer amount sender recipient none)
-)
 
 ;;#[allow(unchecked_data)]
 (define-public (create-listing

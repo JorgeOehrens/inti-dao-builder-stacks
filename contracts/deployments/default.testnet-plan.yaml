@@ -9,17 +9,17 @@ plan:
     - id: 0
       transactions:
         - contract-publish:
-            contract-name: DAOToken
+            contract-name: FactoryDAO
             expected-sender: STNMSHXM8WZT2DN4SDC1EHTYJY97012YF7CXRZF3
-            cost: 109943
-            path: contracts/DAOToken.clar
+            cost: 9631998
+            path: contracts/FactoryDAO.clar
             anchor-block-only: true
             clarity-version: 2
         - contract-publish:
-            contract-name: DAOCommunity
+            contract-name: TestFactoryDAO
             expected-sender: STNMSHXM8WZT2DN4SDC1EHTYJY97012YF7CXRZF3
-            cost: 109943
-            path: contracts/DAOCommunity.clar
+            cost: 9629850
+            path: contracts/TestFactoryDAO.clar
             anchor-block-only: true
             clarity-version: 2
       epoch: "2.5"

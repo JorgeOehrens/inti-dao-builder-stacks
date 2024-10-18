@@ -5,17 +5,7 @@ authors = []
 telemetry = true
 cache_dir = './.cache'
 
-[[project.requirements]]
-contract_id = 'SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8QJ5SVTE.sip-010-trait-ft-standard'
-[contracts.DAOCommunity]
-path = 'contracts/DAOCommunity.clar'
-clarity_version = 2
-epoch = 2.5
 
-[contracts.DAOToken]
-path = 'contracts/DAOToken.clar'
-clarity_version = 2
-epoch = 2.5
 
 [contracts.FactoryDAO]
 path = 'contracts/FactoryDAO.clar'

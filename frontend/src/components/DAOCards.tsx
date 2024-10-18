@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { StacksTestnet } from "@stacks/network";
 import { callReadOnlyFunction, uintCV } from "@stacks/transactions";
 
-
 const daoList = [
   {
     name: "Polygon Community Treasury",
@@ -94,7 +93,6 @@ function DAOCards() {
       let fetchedResults: any[] = [];
 
       for (let i = 0; i < 10; i++) {
-
         try {
           const options = {
             contractAddress: "STNMSHXM8WZT2DN4SDC1EHTYJY97012YF7CXRZF3",
@@ -126,7 +124,6 @@ function DAOCards() {
         Explore DAOs
       </h3>
 
-
       {results.length > 0 ? (
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
           {results.map((result, index) => {
@@ -147,7 +144,6 @@ function DAOCards() {
                 <p className="text-gray-600 mt-2">{`Token Symbol: ${tokenSymbol}`}</p>
                 <div className="mt-4 flex space-x-2">
                   <span className="inline-block bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">
-
                     tag
                   </span>
                 </div>
@@ -161,7 +157,6 @@ function DAOCards() {
 
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
         {daoList.slice(0, 4).map((dao, index) => (
-
           <div
             key={index}
             className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300"
@@ -183,13 +178,11 @@ function DAOCards() {
         ))}
       </div>
 
-
       <div className="mt-8 text-center">
         <button className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition">
           Show more
         </button>
-
-      <div className="mt-8 text-center"></div>
+      </div>
     </section>
   );
 }

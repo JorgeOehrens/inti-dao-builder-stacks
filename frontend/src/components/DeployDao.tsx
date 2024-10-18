@@ -1,16 +1,69 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { stringAsciiCV } from "@stacks/transactions"; // Importa stringAsciiCV para manejar strings
+import { AppConfig, openContractCall, UserSession } from "@stacks/connect";
+import { StacksTestnet } from "@stacks/network";
+
 
 function DeployDao() {
   const [blockchainConfirmed, setBlockchainConfirmed] = useState(false);
   const [daoConfirmed, setDaoConfirmed] = useState(false);
   const [votersConfirmed, setVotersConfirmed] = useState(false);
   const [votingParamsConfirmed, setVotingParamsConfirmed] = useState(false);
-  const navigate = useNavigate(); // Use navigate for routing
+  const [nameDao, setNameDao] = useState("");
+  const [symbolDao, setSymbolDao] = useState("");
+
+  const [, setLoggedIn] = useState(false);
+  const appConfig = new AppConfig(["publish_data"]);
+  const userSession = new UserSession({ appConfig });
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userSession.isSignInPending()) {
+      userSession.handlePendingSignIn().then(() => {
+        setLoggedIn(true);
+      });
+    } else if (userSession.isUserSignedIn()) {
+      setLoggedIn(true);
+    }
+  }, []);
+
+  const network = new StacksTestnet();
+
+  const submitDao = async () => {
+    if (!nameDao || !symbolDao) {
+      alert("Please enter both DAO name and symbol.");
+      return;
+    }
+
+    const assetAddress = "STNMSHXM8WZT2DN4SDC1EHTYJY97012YF7CXRZF3";
+    const contractName = "TestFactoryDAO";
+    const functionName = "create-listing";
+
+    const functionArgs = [stringAsciiCV(nameDao), stringAsciiCV(symbolDao)];
+
+    const options = {
+      contractAddress: assetAddress,
+      contractName,
+      functionName,
+      functionArgs,
+      network,
+      senderAddress: userSession.loadUserData().profile.stxAddress.testnet,
+    };
+
+    try {
+      const result = await openContractCall(options);
+      console.log("Contract call result:", result);
+
+      navigate("/confirmation");
+    } catch (error) {
+      console.error("Error in contract call:", error);
+    }
+  };
 
   const handleDeploy = () => {
-    // Directly navigate to confirmation page without any checks for now
-    navigate("/confirmation"); // Navigate to the confirmation page
+    submitDao();
+
   };
 
   return (
@@ -20,7 +73,7 @@ function DeployDao() {
         Double-check that everything is correct before deploying your DAO.
       </p>
 
-      {/* Blockchain Section */}
+
       <div className="mb-6 p-4 border rounded-md bg-gray-50">
         <h2 className="text-xl font-semibold mb-2">
           Blockchain{" "}
@@ -44,7 +97,7 @@ function DeployDao() {
         </div>
       </div>
 
-      {/* DAO Section */}
+
       <div className="mb-6 p-4 border rounded-md bg-gray-50">
         <h2 className="text-xl font-semibold mb-2">
           DAO{" "}
@@ -53,15 +106,28 @@ function DeployDao() {
           </span>
         </h2>
         <p>Logo: 🟡</p>
-        <p>Name: SalvaLaMomia DAO</p>
-        <p>ENS Subdomain: salvaLaMomia.dao.eth</p>
-        <p>Summary: Test DAO</p>
-        <p>
-          Links:{" "}
-          <a href="http://salvalamomia.org" className="text-blue-500 underline">
-            SalvaLaMomia
-          </a>
-        </p>
+        <label className="block text-gray-700 mb-2">
+          <span className="mr-4">Name:</span>
+          <input
+            type="text"
+            value={nameDao}
+            onChange={(e) => setNameDao(e.target.value)}
+            className="border p-2 w-1/2"
+            placeholder="Enter DAO Name"
+          />
+        </label>
+        <label className="block text-gray-700 mb-2">
+          <span className="mr-4">Symbol:</span>
+
+          <input
+            type="text"
+            value={symbolDao}
+            onChange={(e) => setSymbolDao(e.target.value)}
+            className="border p-2 w-1/2 "
+            placeholder="Enter DAO Symbol"
+          />
+        </label>
+
         <div className="flex items-center mt-4">
           <input
             type="checkbox"
@@ -75,7 +141,7 @@ function DeployDao() {
         </div>
       </div>
 
-      {/* Voters Section */}
+
       <div className="mb-6 p-4 border rounded-md bg-gray-50">
         <h2 className="text-xl font-semibold mb-2">
           Voters{" "}
@@ -100,7 +166,7 @@ function DeployDao() {
         </div>
       </div>
 
-      {/* Voting Parameters Section */}
+
       <div className="mb-6 p-4 border rounded-md bg-gray-50">
         <h2 className="text-xl font-semibold mb-2">
           Voting parameters{" "}
@@ -127,10 +193,10 @@ function DeployDao() {
         </div>
       </div>
 
-      {/* Deploy Button */}
       <button
         className="mt-6 px-6 py-3 rounded-md bg-blue-500 text-white hover:bg-blue-600"
-        onClick={handleDeploy} // Call the deploy handler
+        onClick={handleDeploy}
+
       >
         Deploy your DAO
       </button>

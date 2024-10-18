@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { standardPrincipalCV, stringAsciiCV } from "@stacks/transactions"; // Importa stringAsciiCV para manejar strings
+import { stringAsciiCV } from "@stacks/transactions"; // Importa stringAsciiCV para manejar strings
 import { AppConfig, openContractCall, UserSession } from "@stacks/connect";
 import { StacksTestnet } from "@stacks/network";
 
@@ -12,7 +12,7 @@ function DeployDao() {
   const [nameDao, setNameDao] = useState("");
   const [symbolDao, setSymbolDao] = useState("");
 
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [, setLoggedIn] = useState(false);
   const appConfig = new AppConfig(["publish_data"]);
   const userSession = new UserSession({ appConfig });
   const navigate = useNavigate();

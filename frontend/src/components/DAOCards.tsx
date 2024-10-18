@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { StacksTestnet } from "@stacks/network";
 import { callReadOnlyFunction, uintCV } from "@stacks/transactions";
 

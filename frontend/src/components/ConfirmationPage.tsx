@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
-import Confetti from "react-confetti";
-import { useNavigate } from "react-router-dom";
+import Confetti from 'react-confetti';
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
 
 function ConfirmationPage() {
   const [showConfetti, setShowConfetti] = useState(true);
@@ -29,15 +30,17 @@ function ConfirmationPage() {
       </p>
 
       <button
-        className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600"
-        onClick={() => navigate("/")} // Route to homepage ('/')
+        className="bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600"
+        onClick={() => navigate('/')} // Route to homepage ('/')
+
       >
         Go to Dashboard
       </button>
 
       <button
-        className="ml-4 bg-gray-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-gray-600"
-        onClick={() => navigate("/create-new-dao")} // Route to create a new DAO
+        className="ml-4 bg-cyan-700 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-gray-600"
+        onClick={() => navigate('/select-dao-type')} // Route to create a new DAO
+
       >
         Create Another DAO
       </button>

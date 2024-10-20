@@ -24,14 +24,24 @@ Inti: DAO Builder es una aplicación descentralizada (dApp) que opera sobre Bitc
 - Node.js (v14 o superior)
 - npm o yarn
 - Git
+### Dependencias necesarias:
+
+- **React**: Biblioteca para la construcción de interfaces de usuario.
+- **Vite**: Un bundler rápido para desarrollo front-end con soporte a hot-module replacement.
+- **TailwindCSS**: Framework de utilidades CSS para un desarrollo más rápido de interfaces.
+- **AOS (Animate On Scroll)**: Biblioteca para animaciones en scroll.
+- **Stacks.js**: SDK para interactuar con la blockchain de Stacks y manejar la autenticación y los contratos inteligentes.
+- **react-router-dom**: Para la navegación entre páginas en una Single Page Application (SPA).
+- **TypeScript**: Para añadir tipado estático a JavaScript y mejorar la mantenibilidad del código.
+- **Clarity**: Lenguaje para contratos inteligentes en Stacks.
 
 ### Instalación:
 
 1. Clona este repositorio:
 
    ```bash
-   git clone https://github.com/TuUsuario/inti-dao-builder.git
-   cd inti-dao-builder
+   git clone https://github.com/JorgeOehrens/hackaton-stacks.git
+   cd hackaton-stacks
    npm install
    npm run dev
    	2.	Abre http://localhost:3000 para ver la aplicación en tu navegador.

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import ProgressBar from './ProgressBar'; // Import the progress bar component
 
 function SelectGovernance() {
   const [supportThreshold, setSupportThreshold] = useState(50);
@@ -14,6 +15,8 @@ function SelectGovernance() {
 
   return (
     <div className="container mx-auto py-10">
+      {/* Progress Bar - 4 out of 5 steps */} 
+      <ProgressBar currentStep={4} totalSteps={5} />
       <h1 className="text-3xl font-bold mb-4">Select Governance Settings</h1>
 
       {/* Support Threshold */}

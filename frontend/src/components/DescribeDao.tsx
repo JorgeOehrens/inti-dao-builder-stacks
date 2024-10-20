@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ProgressBar from './ProgressBar'; // Import the progress bar component
 
 function DescribeDao() {
   const [name, setName] = useState('');
@@ -13,6 +14,8 @@ function DescribeDao() {
 
   return (
     <div className="container mx-auto py-10">
+      {/* Progress Bar - 2 out of 5 steps */} 
+      <ProgressBar currentStep={2} totalSteps={5} />
       <h1 className="text-3xl font-bold mb-4">Describe your DAO</h1>
       <div className="mb-4">
         <label className="block mb-2">Name</label>

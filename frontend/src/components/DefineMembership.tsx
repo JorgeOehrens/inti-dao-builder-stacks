@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ProgressBar from './ProgressBar'; // Import the progress bar component
 
 function DefineMembership() {
   const [name, setName] = useState('');
@@ -15,6 +16,8 @@ function DefineMembership() {
 
   return (
     <div className="container mx-auto py-10">
+      {/* Progress Bar - 3 out of 5 steps */} 
+      <ProgressBar currentStep={3} totalSteps={5} />
       <h1 className="text-3xl font-bold mb-4">Mint your token</h1>
 
       {/* Name Field */}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import ProgressBar from './ProgressBar'; // Import the progress bar component
 
 function DeployDao() {
   const [blockchainConfirmed, setBlockchainConfirmed] = useState(false);
@@ -18,6 +19,8 @@ function DeployDao() {
 
   return (
     <div className="container mx-auto py-10">
+      {/* Progress Bar - 5 out of 5 steps */}   
+      <ProgressBar currentStep={5} totalSteps={5} />
       <h1 className="text-3xl font-bold mb-6">Deploy your DAO</h1>
       <p className="text-lg mb-6">Double-check that everything is correct before deploying your DAO.</p>
 

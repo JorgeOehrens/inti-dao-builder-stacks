@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ProgressBar from './ProgressBar'; // Import the progress bar component
 
 const daoTypes = [
   { id: 1, name: 'Protocol DAOs', description: 'Manages decentralized protocols like Uniswap DAO.' },
@@ -21,6 +22,9 @@ function SelectDaoType() {
 
   return (
     <div className="container mx-auto py-10">
+      {/* Progress Bar - 1 out of 5 steps */}
+      <ProgressBar currentStep={1} totalSteps={5} />
+
       <h1 className="text-3xl font-bold mb-4">Select the type of DAO</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {daoTypes.map((dao) => (

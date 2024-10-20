@@ -34,7 +34,6 @@ const daoList = [
     logo: 'https://img.logoipsum.com/282.svg'
 
   },
-  // Add logos for the rest of the DAOs similarly...
 
   {
     name: 'Crowdfund Nation',
@@ -84,6 +83,7 @@ const daoList = [
     tags: ['Social', 'BBH'],
     logo: 'https://img.logoipsum.com/224.svg'
   }
+
 
 ];
 

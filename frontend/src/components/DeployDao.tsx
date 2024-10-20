@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
+import ProgressBar from "./ProgressBar"; // Import the progress bar component
 import { stringAsciiCV } from "@stacks/transactions"; // Importa stringAsciiCV para manejar strings
 import { AppConfig, openContractCall, UserSession } from "@stacks/connect";
 import { StacksTestnet } from "@stacks/network";
@@ -59,15 +60,15 @@ function DeployDao() {
     } catch (error) {
       console.error("Error in contract call:", error);
     }
+
   };
 
   const handleDeploy = () => {
     submitDao();
-
   };
-
   return (
     <div className="container mx-auto py-10">
+      <ProgressBar currentStep={5} totalSteps={5} />
       <h1 className="text-3xl font-bold mb-6">Deploy your DAO</h1>
       <p className="text-lg mb-6">
         Double-check that everything is correct before deploying your DAO.
@@ -96,7 +97,6 @@ function DeployDao() {
           </label>
         </div>
       </div>
-
 
       <div className="mb-6 p-4 border rounded-md bg-gray-50">
         <h2 className="text-xl font-semibold mb-2">
@@ -127,6 +127,15 @@ function DeployDao() {
             placeholder="Enter DAO Symbol"
           />
         </label>
+
+        <p>ENS Subdomain: salvaLaMomia.dao.eth</p>
+        <p>Summary: Test DAO</p>
+        <p>
+          Links:{" "}
+          <a href="http://salvalamomia.org" className="text-blue-500 underline">
+            SalvaLaMomia
+          </a>
+        </p>
 
         <div className="flex items-center mt-4">
           <input
@@ -194,7 +203,7 @@ function DeployDao() {
       </div>
 
       <button
-        className="mt-6 px-6 py-3 rounded-md bg-blue-500 text-white hover:bg-blue-600"
+        className="mt-6 px-6 py-3 rounded-md bg-red-500 text-white hover:bg-blue-600"
         onClick={handleDeploy}
 
       >

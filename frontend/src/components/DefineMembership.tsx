@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import ProgressBar from './ProgressBar'; // Import the progress bar component
+import { useState } from 'react';
+
 
 function DefineMembership() {
   const [name, setName] = useState("");
@@ -13,8 +15,14 @@ function DefineMembership() {
     navigate("/select-governance"); // Navigate to the next step
   };
 
+  const handleBack = () => {
+    navigate('/describe-dao'); // Navigate back to the previous step
+  };
+
   return (
     <div className="container mx-auto py-10">
+      {/* Progress Bar - 3 out of 5 steps */} 
+      <ProgressBar currentStep={3} totalSteps={5} />
       <h1 className="text-3xl font-bold mb-4">Mint your token</h1>
 
       {/* Name Field */}
@@ -98,16 +106,11 @@ function DefineMembership() {
 
       {/* Navigation Buttons */}
       <div className="flex justify-between">
-        <button
-          className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md"
-          onClick={() => console.log("Back")}
-        >
+        <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md" onClick={handleBack}>
           Back
         </button>
-        <button
-          className="bg-blue-500 text-white px-4 py-2 rounded-md"
-          onClick={handleNext}
-        >
+        <button className="bg-red-500 text-white px-4 py-2 rounded-md" onClick={handleNext}>
+
           Next
         </button>
       </div>

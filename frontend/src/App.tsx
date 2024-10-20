@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SelectDaoType from './components/SelectDaoType';
 import DescribeDao from './components/DescribeDao';
@@ -7,8 +7,18 @@ import SelectGovernance from './components/SelectGovernance';
 import DeployDao from './components/DeployDao';
 import ConfirmationPage from './components/ConfirmationPage';
 import Home from './pages/home'; // Import the homepage component
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      easing: 'ease', // Easing style
+      once: true, // Whether animation should happen only once
+    });
+  }, []);
+
   return (
     <Router>
       <Routes>

@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ProgressBar from './ProgressBar'; // Import the progress bar component
+import AOS from 'aos'; // Import AOS for animations
+import 'aos/dist/aos.css'; // Import AOS styles
 
 const daoTypes = [
   { id: 1, name: 'Protocol DAOs', description: 'Manages decentralized protocols like Uniswap DAO.' },
@@ -14,26 +16,48 @@ function SelectDaoType() {
   const [selectedDaoType, setSelectedDaoType] = useState(null);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true }); // Initialize AOS with the once option for initial load
+  }, []);
+
   const handleNext = () => {
     if (selectedDaoType) {
       navigate('/describe-dao');
     }
   };
 
+  // Function to remove AOS attributes after animation is done
+  useEffect(() => {
+    const removeAOS = () => {
+      const elements = document.querySelectorAll('[data-aos]');
+      elements.forEach((el) => {
+        el.removeAttribute('data-aos');
+        el.removeAttribute('data-aos-delay');
+      });
+    };
+    
+    // Remove AOS attributes after the initial animation completes
+    setTimeout(removeAOS, 1500); // Adjust based on your animation duration
+  }, []);
+
   return (
     <div className="container mx-auto py-10">
       {/* Progress Bar - 1 out of 5 steps */}
       <ProgressBar currentStep={1} totalSteps={5} />
 
-      <h1 className="text-3xl font-bold mb-4">Select the type of DAO</h1>
+      <h1 className="text-3xl font-bold mb-4" data-aos="fade-up">Select the type of DAO</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {daoTypes.map((dao) => (
           <div
             key={dao.id}
-            className={`p-4 border rounded-lg cursor-pointer ${
-              selectedDaoType === dao.id ? 'border-blue-500' : 'border-gray-300'
+            className={`p-4 border rounded-lg cursor-pointer transition-all duration-300 ${
+              selectedDaoType === dao.id 
+                ? 'border-blue-500 shadow-lg ring-2 ring-blue-400'  // Highlight selected with shadow and ring
+                : 'border-gray-300'
             }`}
             onClick={() => setSelectedDaoType(dao.id)}
+            data-aos="fade-up"
+            data-aos-delay={dao.id * 100}
           >
             <h2 className="text-xl font-semibold">{dao.name}</h2>
             <p>{dao.description}</p>
@@ -44,6 +68,8 @@ function SelectDaoType() {
         onClick={handleNext}
         className="mt-6 bg-blue-500 text-white px-4 py-2 rounded-lg disabled:opacity-50"
         disabled={!selectedDaoType}
+        data-aos="fade-up"
+        data-aos-delay="600"
       >
         Next
       </button>

@@ -94,7 +94,7 @@ const Hero: React.FC = () => {
               </div>
               <h3 className="text-xl font-bold">Track Roadmap On Chain</h3>
               <p className="text-gray-600 mt-2">
-                Use our governance plugins to build a DAO, dApp, or anything you can imagine on the Aragon OSx protocol.
+              Gain full transparency and accountability by tracking your project’s progress on-chain. Our governance plugins allow you to set milestones, manage deliverables, and keep your community informed—all in a decentralized, tamper-proof environment.
               </p>
               <div className="mt-6">
                 <button className="bg-gray-300 text-gray-600 px-4 py-2 rounded-lg w-full" disabled>

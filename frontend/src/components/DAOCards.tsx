@@ -92,6 +92,8 @@ function DAOCards() {
           <div
             key={index}
             className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300"
+            data-aos="fade-up"
+            data-aos-delay={index * 50}
           >
             {/* Profile Picture */}
             <div className="flex justify-center mb-4">

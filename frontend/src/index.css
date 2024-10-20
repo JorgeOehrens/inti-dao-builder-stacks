@@ -14,3 +14,7 @@
   .animate-rotate-slow {
     animation: rotate-slow 300s linear infinite; /* 60 seconds for slow rotation */
   }
+  body {
+    margin: 0;
+    padding: 0;
+  }

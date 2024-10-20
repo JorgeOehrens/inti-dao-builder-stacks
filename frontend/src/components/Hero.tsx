@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
   return (
     <section className="relative w-screen text-white overflow-hidden">
       {/* Full-width background */}
-      <div className="absolute inset-0 overflow-hidden bg-gradient-to-r from-rose-500 via-red-600 to-purple-500 animate-gradient-flow"
+      <div className="absolute inset-0 overflow-hidden bg-gradient-to-r from-rose-500 via-red-400 to-red-600 animate-gradient-flow"
      style={{ width: '100vw', height: '80vh', backgroundSize: '200% 200%' }}>
         {/* Red Star Icon placed inside the red background */}
         <div className="absolute right-0 bottom-100 w-[70%] max-w-4xl opacity-80 z-0 animate-rotate-slow">

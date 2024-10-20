@@ -22,8 +22,12 @@ function SelectDaoType() {
 
   const handleNext = () => {
     if (selectedDaoType) {
-      navigate('/describe-dao');
+      navigate('/describe-dao'); // Navigate to the next step
     }
+  };
+
+  const handleBack = () => {
+    navigate('/'); // Navigate back to the previous page (in this case, the homepage)
   };
 
   // Function to remove AOS attributes after animation is done
@@ -64,15 +68,25 @@ function SelectDaoType() {
           </div>
         ))}
       </div>
-      <button
-        onClick={handleNext}
-        className="mt-6 bg-blue-500 text-white px-4 py-2 rounded-lg disabled:opacity-50"
-        disabled={!selectedDaoType}
-        data-aos="fade-up"
-        data-aos-delay="600"
-      >
-        Next
-      </button>
+
+      <div className="mt-6 flex justify-between">
+        <button
+          onClick={handleBack}
+          className="bg-gray-300 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-400"
+        >
+          Back
+        </button>
+
+        <button
+          onClick={handleNext}
+          className="bg-red-500 text-white px-4 py-2 rounded-lg disabled:opacity-50"
+          disabled={!selectedDaoType}
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 }

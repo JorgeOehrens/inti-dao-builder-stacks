@@ -13,6 +13,10 @@ function SelectGovernance() {
     navigate('/deploy-dao');
   };
 
+  const handleBack = () => {
+    navigate('/define-membership'); // Navigate back to the previous step
+  };
+
   return (
     <div className="container mx-auto py-10">
       {/* Progress Bar - 4 out of 5 steps */} 
@@ -67,10 +71,10 @@ function SelectGovernance() {
 
       {/* Navigation Buttons */}
       <div className="flex justify-between">
-        <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md" onClick={() => console.log('Back')}>
+        <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md" onClick={handleBack}>
           Back
         </button>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-md" onClick={handleNext}>
+        <button className="bg-red-500 text-white px-4 py-2 rounded-md" onClick={handleNext}>
           Next
         </button>
       </div>

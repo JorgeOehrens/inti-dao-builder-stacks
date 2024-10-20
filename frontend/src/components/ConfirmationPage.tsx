@@ -23,15 +23,15 @@ function ConfirmationPage() {
       <p className="text-lg text-gray-700 mb-8">Your DAO is now live and ready to use.</p>
 
       <button
-        className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600"
+        className="bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600"
         onClick={() => navigate('/')} // Route to homepage ('/')
       >
         Go to Dashboard
       </button>
 
       <button
-        className="ml-4 bg-gray-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-gray-600"
-        onClick={() => navigate('/create-new-dao')} // Route to create a new DAO
+        className="ml-4 bg-cyan-700 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-gray-600"
+        onClick={() => navigate('/select-dao-type')} // Route to create a new DAO
       >
         Create Another DAO
       </button>

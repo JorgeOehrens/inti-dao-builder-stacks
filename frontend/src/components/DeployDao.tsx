@@ -104,7 +104,7 @@ function DeployDao() {
 
       {/* Deploy Button */}
       <button
-        className="mt-6 px-6 py-3 rounded-md bg-blue-500 text-white hover:bg-blue-600"
+        className="mt-6 px-6 py-3 rounded-md bg-red-500 text-white hover:bg-blue-600"
         onClick={handleDeploy} // Call the deploy handler
       >
         Deploy your DAO

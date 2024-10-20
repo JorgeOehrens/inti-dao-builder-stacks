@@ -6,6 +6,7 @@ import LearnIcon from '../assets/learn-dao-icon.png';
 import TrackIcon from '../assets/track-dao-icon.png';
 import HeroIcon from '../assets/REDSUN_INTIHERO.png'; // Import your hero icon
 
+
 const Hero: React.FC = () => {
   const navigate = useNavigate();
 

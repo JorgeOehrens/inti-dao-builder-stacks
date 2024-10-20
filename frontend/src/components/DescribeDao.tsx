@@ -2,14 +2,15 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ProgressBar from './ProgressBar'; // Import the progress bar component
 
+
 function DescribeDao() {
-  const [name, setName] = useState('');
-  const [subdomain, setSubdomain] = useState('');
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState("");
+  const [subdomain, setSubdomain] = useState("");
+  const [description, setDescription] = useState("");
   const navigate = useNavigate();
 
   const handleNext = () => {
-    navigate('/define-membership');
+    navigate("/define-membership");
   };
 
   const handleBack = () => {
@@ -61,6 +62,7 @@ function DescribeDao() {
           Next
         </button>
       </div>
+
     </div>
   );
 }

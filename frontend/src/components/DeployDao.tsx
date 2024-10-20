@@ -5,6 +5,7 @@ import { stringAsciiCV } from "@stacks/transactions"; // Importa stringAsciiCV p
 import { AppConfig, openContractCall, UserSession } from "@stacks/connect";
 import { StacksTestnet } from "@stacks/network";
 
+
 function DeployDao() {
   const [blockchainConfirmed, setBlockchainConfirmed] = useState(false);
   const [daoConfirmed, setDaoConfirmed] = useState(false);
@@ -59,6 +60,7 @@ function DeployDao() {
     } catch (error) {
       console.error("Error in contract call:", error);
     }
+
   };
 
   const handleDeploy = () => {
@@ -71,6 +73,7 @@ function DeployDao() {
       <p className="text-lg mb-6">
         Double-check that everything is correct before deploying your DAO.
       </p>
+
 
       <div className="mb-6 p-4 border rounded-md bg-gray-50">
         <h2 className="text-xl font-semibold mb-2">
@@ -133,6 +136,7 @@ function DeployDao() {
             SalvaLaMomia
           </a>
         </p>
+
         <div className="flex items-center mt-4">
           <input
             type="checkbox"
@@ -145,6 +149,7 @@ function DeployDao() {
           </label>
         </div>
       </div>
+
 
       <div className="mb-6 p-4 border rounded-md bg-gray-50">
         <h2 className="text-xl font-semibold mb-2">
@@ -169,6 +174,7 @@ function DeployDao() {
           </label>
         </div>
       </div>
+
 
       <div className="mb-6 p-4 border rounded-md bg-gray-50">
         <h2 className="text-xl font-semibold mb-2">
@@ -199,6 +205,7 @@ function DeployDao() {
       <button
         className="mt-6 px-6 py-3 rounded-md bg-red-500 text-white hover:bg-blue-600"
         onClick={handleDeploy}
+
       >
         Deploy your DAO
       </button>

@@ -1,5 +1,3 @@
-import React from "react";
-
 function CreateCard() {
   return (
     <section className="w-full text-center py-16 bg-gray-100">

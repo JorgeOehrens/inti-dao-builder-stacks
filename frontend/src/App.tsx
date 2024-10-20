@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SelectDaoType from './components/SelectDaoType';
 import DescribeDao from './components/DescribeDao';
@@ -6,7 +6,7 @@ import DefineMembership from './components/DefineMembership';
 import SelectGovernance from './components/SelectGovernance';
 import DeployDao from './components/DeployDao';
 import ConfirmationPage from './components/ConfirmationPage';
-import Home from './pages/home'; // Import the homepage component
+import Home from './pages/Home.tsx'; // Import the homepage component
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 

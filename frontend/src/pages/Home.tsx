@@ -1,12 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  AppConfig,
-  UserSession,
-  showConnect,
-  openContractCall,
-} from "@stacks/connect";
-import { StacksMocknet } from "@stacks/network";
-import { stringUtf8CV } from "@stacks/transactions";
+import { AppConfig, UserSession, showConnect } from "@stacks/connect";
 import { UserData } from "@stacks/auth";
 
 // Import additional components
@@ -16,9 +9,6 @@ import DAOCards from "../components/DAOCards";
 import Footer from "../components/Footer";
 
 function App() {
-  const [message, setMessage] = useState("");
-  const [transactionId, setTransactionId] = useState("");
-  const [currentMessage, setCurrentMessage] = useState("");
   const [userData, setUserData] = useState<UserData | undefined>(undefined);
 
   const appConfig = new AppConfig(["store_write"]);
@@ -46,47 +36,11 @@ function App() {
     });
   };
 
-  const handleMessageChange = (e: any) => {
-    setMessage(e.target.value);
-  };
-
-  const submitMessage = async (e: any) => {
-    e.preventDefault();
-
-    const network = new StacksMocknet();
-
-    const options = {
-      contractAddress: "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM",
-      contractName: "hello-stacks",
-      functionName: "write-message",
-      functionArgs: [stringUtf8CV(message)],
-      network,
-      appDetails,
-      onFinish: ({ txId }: { txId: string }) => {
-        console.log(txId);
-        setTransactionId(txId);
-      },
-    };
-
-    await openContractCall(options);
-  };
-
-  const handleTransactionChange = (e: any) => {
-    setTransactionId(e.target.value);
-  };
-
-  const retrieveMessage = () => {
-    // Add logic to retrieve message using transactionId
-  };
-
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen  gap-8 bg-gray-100 p-4">
+    <div className="flex flex-col justify-center items-center min-h-screen gap-8 bg-gray-100 p-4">
       <Header />
-
       <Hero />
-
       <DAOCards />
-
       <Footer />
     </div>
   );

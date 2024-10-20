@@ -1,13 +1,5 @@
-import React, { useEffect, useState } from "react";
-import {
-  AppConfig,
-  UserSession,
-  showConnect,
-  openContractCall,
-} from "@stacks/connect";
-import { StacksMocknet } from "@stacks/network";
-import { stringUtf8CV } from "@stacks/transactions";
-import { UserData } from "@stacks/auth";
+import { useEffect } from "react";
+
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";

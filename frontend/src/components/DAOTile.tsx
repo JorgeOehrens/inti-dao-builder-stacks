@@ -1,6 +1,4 @@
-import React from 'react';
-
-function DAOTile({ dao }) {
+function DAOTile({ dao }: { dao: { name: string; tags: string[]; description: string } }) {
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
       <h3 className="text-xl font-semibold text-gray-800" style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 600 }} >{dao.name}</h3>

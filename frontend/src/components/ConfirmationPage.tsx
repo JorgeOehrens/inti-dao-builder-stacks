@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
 import Confetti from 'react-confetti';
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 function ConfirmationPage() {
   const [showConfetti, setShowConfetti] = useState(true);

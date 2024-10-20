@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Import PNGs for the icons
@@ -12,7 +11,7 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative w-screen text-white overflow-hidden">
-      {/* Full-width background */}
+      
       <div className="absolute inset-0 overflow-hidden bg-gradient-to-r from-rose-500 via-red-400 to-red-600 animate-gradient-flow"
      style={{ width: '100vw', height: '80vh', backgroundSize: '200% 200%' }}>
         {/* Red Star Icon placed inside the red background */}
@@ -60,7 +59,7 @@ const Hero: React.FC = () => {
               </p>
               <div className="mt-6">
                 <button
-                  className="bg-rose-600 text-white px-4 py-2 rounded-lg w-full hover:bg-red-700"
+                  className="bg-orange-500 text-white px-4 py-2 rounded-lg w-full hover:bg-red-700"
                   onClick={() => navigate('/select-dao-type')}
                 >
                   Create a DAO

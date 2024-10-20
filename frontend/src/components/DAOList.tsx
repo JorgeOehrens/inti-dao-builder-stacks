@@ -1,4 +1,3 @@
-import React from 'react';
 import DAOTile from './DAOTile';
 
 function DAOList() {

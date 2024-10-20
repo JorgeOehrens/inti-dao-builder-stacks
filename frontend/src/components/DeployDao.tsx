@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 import ProgressBar from './ProgressBar'; // Import the progress bar component
 
@@ -9,8 +9,6 @@ function DeployDao() {
   const [votingParamsConfirmed, setVotingParamsConfirmed] = useState(false);
   const navigate = useNavigate(); // Use navigate for routing
 
-  const allConfirmed =
-    blockchainConfirmed && daoConfirmed && votersConfirmed && votingParamsConfirmed;
 
   const handleDeploy = () => {
     // Directly navigate to confirmation page without any checks for now

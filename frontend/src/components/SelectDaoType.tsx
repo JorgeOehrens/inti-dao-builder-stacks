@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ProgressBar from './ProgressBar'; // Import the progress bar component
 import AOS from 'aos'; // Import AOS for animations
@@ -13,7 +13,7 @@ const daoTypes = [
 ];
 
 function SelectDaoType() {
-  const [selectedDaoType, setSelectedDaoType] = useState(null);
+  const [selectedDaoType, setSelectedDaoType] = useState<number | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {

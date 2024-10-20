@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ProgressBar from './ProgressBar'; // Import the progress bar component
+import { useState } from 'react';
 
 function DefineMembership() {
   const [name, setName] = useState('');
   const [symbol, setSymbol] = useState('');
   const [tokens, setTokens] = useState(1);
-  const [allocation, setAllocation] = useState(100);
+  const [allocation] = useState(100);
   const navigate = useNavigate(); // Use navigate from React Router
 
   const handleNext = () => {

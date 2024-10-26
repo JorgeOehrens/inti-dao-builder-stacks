@@ -24,12 +24,15 @@ function App() {
     }
   }, []);
 
-
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen gap-8 bg-gray-100 p-4">
+    <div className="flex flex-col min-h-screen">
+      {/* Your Header and other sections */}
       <Header />
       <Hero />
       <DAOCards />
+
+      {/* Flexbox will push the footer to the bottom */}
+
       <Footer />
     </div>
   );

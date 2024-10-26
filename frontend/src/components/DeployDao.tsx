@@ -81,7 +81,7 @@ function DeployDao() {
           <span className="text-sm text-gray-500">(Not changeable)</span>
         </h2>
         <p>Network: Mainnet</p>
-        <p>Blockchain: Ethereum</p>
+        <p>Blockchain: Stacks</p>
         <div className="flex items-center mt-4">
           <input
             type="checkbox"

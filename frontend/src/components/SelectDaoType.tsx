@@ -4,16 +4,38 @@ import ProgressBar from './ProgressBar'; // Import the progress bar component
 import AOS from 'aos'; // Import AOS for animations
 import 'aos/dist/aos.css'; // Import AOS styles
 
+
 const daoTypes = [
-  { id: 1, name: 'Protocol DAOs', description: 'Manages decentralized protocols like Uniswap DAO.' },
-  { id: 2, name: 'Investment DAOs', description: 'Investment groups that pool funds for projects.' },
-  { id: 3, name: 'Grant DAOs', description: 'DAOs that distribute grants to community projects.' },
-  { id: 4, name: 'Collector DAOs', description: 'Acquires and showcases valuable digital assets.' },
-  { id: 5, name: 'Social DAOs', description: 'Builds communities around shared goals or interests.' },
+  {
+    id: 1,
+    name: "Protocol DAOs",
+    description: "Manages decentralized protocols like Uniswap DAO.",
+  },
+  {
+    id: 2,
+    name: "Investment DAOs",
+    description: "Investment groups that pool funds for projects.",
+  },
+  {
+    id: 3,
+    name: "Grant DAOs",
+    description: "DAOs that distribute grants to community projects.",
+  },
+  {
+    id: 4,
+    name: "Collector DAOs",
+    description: "Acquires and showcases valuable digital assets.",
+  },
+  {
+    id: 5,
+    name: "Social DAOs",
+    description: "Builds communities around shared goals or interests.",
+  },
 ];
 
 function SelectDaoType() {
   const [selectedDaoType, setSelectedDaoType] = useState<number | null>(null);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,7 +44,8 @@ function SelectDaoType() {
 
   const handleNext = () => {
     if (selectedDaoType) {
-      navigate('/describe-dao'); // Navigate to the next step
+
+      navigate("/describe-dao");
     }
   };
 
@@ -58,6 +81,7 @@ function SelectDaoType() {
               selectedDaoType === dao.id 
                 ? 'border-blue-500 shadow-lg ring-2 ring-blue-400'  // Highlight selected with shadow and ring
                 : 'border-gray-300'
+
             }`}
             onClick={() => setSelectedDaoType(dao.id)}
             data-aos="fade-up"

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { AppConfig, UserSession } from "@stacks/connect";
 import { UserData } from "@stacks/auth";
 
-// Import additional components
+
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import DAOCards from "../components/DAOCards";

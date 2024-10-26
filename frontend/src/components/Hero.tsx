@@ -16,6 +16,7 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 overflow-hidden bg-gradient-to-r from-rose-500 via-red-400 to-red-600 animate-gradient-flow"
         style={{ width: '100vw', height: '80vh', backgroundSize: '200% 200%' }}>
         {/* Red Star Icon */}
+
         <div className="absolute right-0 bottom-100 w-[70%] max-w-4xl opacity-80 z-0 animate-rotate-slow">
           <img 
             src={HeroIcon} 
@@ -25,6 +26,7 @@ const Hero: React.FC = () => {
               transform: 'translateY(80%)', 
               transformOrigin: 'center', 
               animation: 'rotate-slow 120s linear infinite' 
+
             }}
           />
         </div>
@@ -97,6 +99,7 @@ const Hero: React.FC = () => {
               <button className="bg-gray-300 text-gray-600 px-4 py-2 rounded-lg w-full" disabled>
                 Coming soon
               </button>
+
             </div>
           </div>
         </div>

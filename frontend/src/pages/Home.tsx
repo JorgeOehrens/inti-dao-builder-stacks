@@ -32,6 +32,7 @@ function App() {
       <DAOCards />
 
       {/* Flexbox will push the footer to the bottom */}
+
       <Footer />
     </div>
   );

@@ -13,6 +13,7 @@ function Footer() {
             <a href="https://inti-dao-builder.gitbook.io/inti-dao-builder-docs/para-empezar/daos" className="hover:underline text-sm md:text-base">Learn</a>
             <a href="#" className="hover:underline text-sm md:text-base">Build</a>
             <a href="#" className="hover:underline text-sm md:text-base">Help</a>
+
           </nav>
         </div>
 
@@ -25,6 +26,7 @@ function Footer() {
         <div className="flex space-x-4 mt-4 md:mt-0">
           <a href="#" className="hover:underline text-sm md:text-base">Terms of service</a>
           <a href="#" className="hover:underline text-sm md:text-base">Privacy</a>
+
         </div>
       </div>
     </footer>

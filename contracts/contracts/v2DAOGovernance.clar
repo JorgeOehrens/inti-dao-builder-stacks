@@ -1,5 +1,5 @@
 
-;; title: DaoCommunity
+;; title: v2DAOGovernance
 ;; version: 1.0
 ;; summary: 
 ;; description:
@@ -44,7 +44,7 @@
 
 (define-private (transferTokenAndJoinCommunity (tokenAmount uint)) 
   (begin 
-  (try! (contract-call? .DAOToken transfer tokenAmount tx-sender (as-contract tx-sender) none))
+  (try! (contract-call? .v2DAOToken transfer tokenAmount tx-sender (as-contract tx-sender) none))
   (map-set tokenBalances tx-sender tokenAmount)
   (ok true)
   )
@@ -54,8 +54,8 @@
 
 (define-private (payoutTokens (receiver principal) (amount uint))
   (begin 
-    (asserts! (is-eq .DAOCommunity (as-contract tx-sender)) err-not-the-owner )
-    (try! (as-contract (contract-call? .DAOToken transfer amount .DAOCommunity receiver  none)))
+    (asserts! (is-eq .v2DAOGovernance (as-contract tx-sender)) err-not-the-owner )
+    (try! (as-contract (contract-call? .v2DAOToken transfer amount .v2DAOGovernance receiver  none)))
     (ok true)
   )
 )

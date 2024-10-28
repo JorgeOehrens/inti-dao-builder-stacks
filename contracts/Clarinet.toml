@@ -4,9 +4,7 @@ description = ''
 authors = []
 telemetry = true
 cache_dir = './.cache'
-
-
-
+requirements = []
 [contracts.FactoryDAO]
 path = 'contracts/FactoryDAO.clar'
 clarity_version = 2
@@ -14,6 +12,26 @@ epoch = 2.5
 
 [contracts.TestFactoryDAO]
 path = 'contracts/TestFactoryDAO.clar'
+clarity_version = 2
+epoch = 2.5
+
+[contracts.v2DAO]
+path = 'contracts/v2DAO.clar'
+clarity_version = 2
+epoch = 2.5
+
+[contracts.v2DAOBuilder]
+path = 'contracts/v2DAOBuilder.clar'
+clarity_version = 2
+epoch = 2.5
+
+[contracts.v2DAOGovernance]
+path = 'contracts/v2DAOGovernance.clar'
+clarity_version = 2
+epoch = 2.5
+
+[contracts.v2DAOToken]
+path = 'contracts/v2DAOToken.clar'
 clarity_version = 2
 epoch = 2.5
 [repl.analysis]

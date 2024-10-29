@@ -5,33 +5,23 @@ authors = []
 telemetry = true
 cache_dir = './.cache'
 requirements = []
-[contracts.FactoryDAO]
-path = 'contracts/FactoryDAO.clar'
+[contracts.sip013-semi-fungible-token-trait]
+path = 'contracts/sip013-semi-fungible-token-trait.clar'
 clarity_version = 2
 epoch = 2.5
 
-[contracts.TestFactoryDAO]
-path = 'contracts/TestFactoryDAO.clar'
+[contracts.sip013-transfer-many-trait]
+path = 'contracts/sip013-transfer-many-trait.clar'
 clarity_version = 2
 epoch = 2.5
 
-[contracts.v2DAO]
-path = 'contracts/v2DAO.clar'
+[contracts.v3DAO]
+path = 'contracts/v3DAO.clar'
 clarity_version = 2
 epoch = 2.5
 
-[contracts.v2DAOBuilder]
-path = 'contracts/v2DAOBuilder.clar'
-clarity_version = 2
-epoch = 2.5
-
-[contracts.v2DAOGovernance]
-path = 'contracts/v2DAOGovernance.clar'
-clarity_version = 2
-epoch = 2.5
-
-[contracts.v2DAOToken]
-path = 'contracts/v2DAOToken.clar'
+[contracts.v3DAOToken]
+path = 'contracts/v3DAOToken.clar'
 clarity_version = 2
 epoch = 2.5
 [repl.analysis]

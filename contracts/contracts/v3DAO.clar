@@ -57,7 +57,7 @@
                (token-symbol token-symbol)))
 
       (var-set listing-nonce (+ listing-id u1))
-      ;; Obtener funcion de crear y enviar tokens a los usuarios
+      
         (try! (as-contract (contract-call? .v3DAOToken create-dao listing-id u100 tx-sender)))
 
 

@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
-import styles from './Sidenav.module.css'; // Import the CSS module
+import styles from './../Sidenav.module.css'; // Import the CSS module
 
 interface SidenavProps {
   daoName: string;

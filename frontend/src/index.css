@@ -10,7 +10,7 @@
       transform: rotate(360deg);
     }
   }
-  
+
   .animate-rotate-slow {
     animation: rotate-slow 300s linear infinite; /* 60 seconds for slow rotation */
   }

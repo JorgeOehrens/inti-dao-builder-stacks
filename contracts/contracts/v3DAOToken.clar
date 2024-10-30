@@ -23,8 +23,9 @@
 )
 
 (define-read-only (get-balance (token-id uint) (who principal))
-    (ok (get-balance-uint token-id who))
-)
+    (let ((balance (get-balance-uint token-id who)))
+        (ok balance) 
+    ))
 
 (define-read-only (get-overall-balance (who principal))
     (ok (ft-get-balance semi-fungible-token who))
@@ -60,6 +61,10 @@
 
         (ok true)
     )
+)
+
+(define-read-only (dao-exists (dao-id uint))
+    (ok (is-some (map-get? dao-owners dao-id)))
 )
 
 ;;#[allow(unchecked_data)]
@@ -122,6 +127,7 @@
         (ok true)
     )
 )
+
 
 (define-private (transfer-many-iter (item {token-id: uint, amount: uint, sender: principal, recipient: principal}) (previous-response (response bool uint)))
     (match previous-response prev-ok (transfer (get token-id item) (get amount item) (get sender item) (get recipient item)) prev-err previous-response)

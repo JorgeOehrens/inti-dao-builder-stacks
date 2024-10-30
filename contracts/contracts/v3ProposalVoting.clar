@@ -52,7 +52,7 @@
     (ok u50) ;; Returns a simulated balance for illustration purposes
 )
 
-;; Voting function that checks SFT balance before allowing a vote
+;;#[allow(unchecked_data)]
 (define-public (vote (amount uint) (for bool) (proposal uint))
 	(let
 		(

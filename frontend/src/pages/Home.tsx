@@ -25,9 +25,11 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen">
+
       <Header />
       <Hero />
       <DAOCards />
+
 
       <Footer />
     </div>

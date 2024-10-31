@@ -10,36 +10,36 @@ plan:
       transactions:
         - contract-publish:
             contract-name: sip013-semi-fungible-token-trait
-            expected-sender: ST3RX2AKM4AGJ8YV0V319FRPRDVNVY9AYS1EMNFCP
+            expected-sender: ST1DT3KBGQZXZAQJZ0EDH0PQ2N0QTWC6XW5EQQXHM
             cost: 10470
             path: contracts/sip013-semi-fungible-token-trait.clar
             anchor-block-only: true
             clarity-version: 2
         - contract-publish:
             contract-name: sip013-transfer-many-trait
-            expected-sender: ST3RX2AKM4AGJ8YV0V319FRPRDVNVY9AYS1EMNFCP
+            expected-sender: ST1DT3KBGQZXZAQJZ0EDH0PQ2N0QTWC6XW5EQQXHM
             cost: 4800
             path: contracts/sip013-transfer-many-trait.clar
             anchor-block-only: true
             clarity-version: 2
         - contract-publish:
             contract-name: v3DAOToken
-            expected-sender: ST3RX2AKM4AGJ8YV0V319FRPRDVNVY9AYS1EMNFCP
+            expected-sender: ST1DT3KBGQZXZAQJZ0EDH0PQ2N0QTWC6XW5EQQXHM
             cost: 57000
             path: contracts/v3DAOToken.clar
             anchor-block-only: true
             clarity-version: 2
         - contract-publish:
             contract-name: v3DAO
-            expected-sender: ST3RX2AKM4AGJ8YV0V319FRPRDVNVY9AYS1EMNFCP
+            expected-sender: ST1DT3KBGQZXZAQJZ0EDH0PQ2N0QTWC6XW5EQQXHM
             cost: 16460
             path: contracts/v3DAO.clar
             anchor-block-only: true
             clarity-version: 2
         - contract-publish:
             contract-name: v3ProposalVoting
-            expected-sender: ST3RX2AKM4AGJ8YV0V319FRPRDVNVY9AYS1EMNFCP
-            cost: 34290
+            expected-sender: ST1DT3KBGQZXZAQJZ0EDH0PQ2N0QTWC6XW5EQQXHM
+            cost: 35560
             path: contracts/v3ProposalVoting.clar
             anchor-block-only: true
             clarity-version: 2

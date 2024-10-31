@@ -4,11 +4,15 @@
 
 **INTI: DAO Builder** es una plataforma innovadora que facilita la creación de DAOs sobre Bitcoin utilizando Stacks, permitiendo que comunidades globales se organicen, colaboren y financien proyectos de manera descentralizada.
 
+**INTI: Contracts**
+💻 [Revisa nuestros contratos](https://explorer.hiro.so/address/ST1DT3KBGQZXZAQJZ0EDH0PQ2N0QTWC6XW5EQQXHM?chain=testnet)
+
 ## 🚀 Demo y Pitch
 
 🎥 **Demo Video**: [Mira nuestro video de demo en YouTube](https://www.youtube.com/watch?v=b_C1sGxKCdc&ab_channel=mentemaestra)  
 📑 **Pitch Deck**: [Revisa nuestra propuesta de valor ✨](https://inti-dao-builder-92w4bz7.gamma.site/)
-💻**Data Room**: [Revisa la información escencial de INTI ✨](https://tinyurl.com/23c6exrk)
+
+💻 **Data Room**: [Revisa la información escencial de INTI ✨](https://tinyurl.com/23c6exrk)
 
 ## 🌐 Enlaces del Proyecto
 

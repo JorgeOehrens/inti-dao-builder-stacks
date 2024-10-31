@@ -16,6 +16,9 @@
 (define-constant err-insufficient-balance (err u3010))
 (define-constant err-invalid-dao (err u3011))
 
+(define-data-var proposals-nonce uint u0)
+
+
 ;; Map definitions
 (define-map proposals
     uint
@@ -23,8 +26,7 @@
         votes-for: uint,
         question: (string-ascii 32),
         votes-against: uint,
-        start-block-height: uint,
-        end-block-height: uint,
+
         dao-id: uint,
         concluded: bool,
         passed: bool,
@@ -34,17 +36,39 @@
 
 (define-map member-total-votes {proposal: uint, voter: principal} uint)
 
-;; Function to add proposals
-(define-public (add-proposal (proposal uint) (data {question: (string-ascii 32), start-block-height: uint, end-block-height: uint, proposer: principal, dao-id: uint}))
-	(begin
-		(print {event: "propose", proposal: proposal, proposer: tx-sender, dao-id: (get dao-id data)})
-		(ok (asserts! 
-			(map-insert proposals proposal 
-				(merge {question:(get question data) , votes-for: u0, votes-against: u0, concluded: false, passed: false, dao-id: (get dao-id data)} data)
-			) 
-			err-proposal-already-exists))
-	)
+;; Public function to create a new proposal}
+
+;;#[allow(unchecked_data)]
+(define-public (create-proposal
+  (votes-for uint)
+  (question (string-ascii 32))
+  (votes-against uint)
+  (dao-id uint)
+  (concluded bool)
+  (passed bool)
+  (proposer principal))
+  
+  (let ((proposal-id (var-get proposals-nonce)))
+    (begin
+      (map-set proposals proposal-id
+        {
+          votes-for: votes-for,
+          question: question,
+          votes-against: votes-against,
+          dao-id: dao-id,
+          concluded: concluded,
+          passed: passed,
+          proposer: proposer
+        })
+      
+      (var-set proposals-nonce (+ proposal-id u1))
+      
+      (ok proposal-id)
+    )
+  )
 )
+
+
 
 ;; Function to get a user's SFT balance for a specific DAO *example*
 (define-read-only (get-user-balance (dao-id uint) (user principal))

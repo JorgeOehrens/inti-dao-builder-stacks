@@ -46,19 +46,20 @@ function DeployDao() {
       return;
     }
 
-    const assetAddress = "ST3RX2AKM4AGJ8YV0V319FRPRDVNVY9AYS1EMNFCP";
+    const assetAddress = "ST1DT3KBGQZXZAQJZ0EDH0PQ2N0QTWC6XW5EQQXHM";
     const contractName = "v3DAO";
     const functionName = "create-listing";
-    const initialTokens = uintCV(1); // Ejemplo: 1000 tokens iniciales
+    const initialTokens = uintCV(1);
 
     const functionArgs = [
-      stringAsciiCV(nameDao), // name-dao
+      stringAsciiCV(nameDao),
       stringAsciiCV(typeDao),
 
       stringAsciiCV(privacyDao),
-      initialTokens, // type-dao
-      stringAsciiCV(subdomainDao), // ens-subdomain
-      stringAsciiCV(descriptionDao), // description
+      initialTokens,
+      stringAsciiCV(subdomainDao),
+      stringAsciiCV(descriptionDao),
+
       stringAsciiCV(symbolDao), // token-symbol
       stringAsciiCV(symbolDao), // token-name (usando el mismo valor de symbolDao para ejemplo)
     ];

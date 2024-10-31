@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { AppConfig, UserSession, showConnect } from "@stacks/connect";
 import { UserData } from "@stacks/auth";
 import { Link } from "react-router-dom";
-import INTI_logo from '../assets/INTI_logo.svg';
+import INTI_logo from "../assets/INTI_logo.svg";
+
 
 function Header() {
   const appConfig = new AppConfig(["store_write"]);
@@ -44,18 +45,26 @@ function Header() {
   };
 
   return (
-    <header className="w-full fixed top-0 left-0 flex justify-between items-center py-4 px-6 bg-indigo-600 z-40 opacity-95" style={{ backgroundColor: '#C7253E' }}>
+    <header
+      className="w-full fixed top-0 left-0 flex justify-between items-center py-4 px-6 bg-indigo-600 z-40 opacity-95"
+      style={{ backgroundColor: "#C7253E" }}
+    >
+
       {/* Logo */}
       <img src={INTI_logo} alt="INTI Logo" className="h-10" />
 
       {/* Centered Navigation Buttons */}
       <nav className="flex space-x-4">
-        <Link to="/DAOFeed" className="text-white font-semibold px-4 py-2 rounded hover:underline">
+        <Link
+          to="/DAOFeed"
+          className="text-white font-semibold px-4 py-2 rounded hover:underline"
+        >
           🌎 DAOs
         </Link>
-        <Link to="/tokens" className="text-white font-semibold px-4 py-2 rounded hover:underline">
+        {/* <Link to="/tokens" className="text-white font-semibold px-4 py-2 rounded hover:underline">
           🪙 Tokens
-        </Link>
+        </Link> */}
+
       </nav>
 
       {/* Wallet Connection Buttons */}
@@ -63,9 +72,10 @@ function Header() {
         <button
           className="bg-white text-indigo-600 px-4 py-2 rounded shadow-lg"
           onClick={connectWallet}
-          style={{ color: '#A40B00' }}
+          style={{ color: "#A40B00" }}
+
         >
-          Connect Wallet  
+          Connect Wallet
         </button>
       ) : (
         <div className="flex items-center">

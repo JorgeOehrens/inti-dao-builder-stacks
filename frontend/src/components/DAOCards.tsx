@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { StacksTestnet } from "@stacks/network";
 import { callReadOnlyFunction, uintCV } from "@stacks/transactions";
+import { Link } from "react-router-dom";
+
 
 function DAOCards() {
   const [results, setResults] = useState<any[]>([]);
@@ -14,7 +16,8 @@ function DAOCards() {
       for (let i = 0; i < 2; i++) {
         try {
           const options = {
-            contractAddress: "ST3RX2AKM4AGJ8YV0V319FRPRDVNVY9AYS1EMNFCP",
+            contractAddress: "ST1DT3KBGQZXZAQJZ0EDH0PQ2N0QTWC6XW5EQQXHM",
+
             contractName: "v3DAO",
             functionName: "get-listing",
             functionArgs: [uintCV(i)],
@@ -55,20 +58,24 @@ function DAOCards() {
             if (name === "N/A") return null;
 
             return (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300"
-              >
-                <h4 className="text-xl font-semibold text-gray-800">{name}</h4>
+              <Link to={`/dashboard/${index}`} key={index}>
+                <div
+                  key={index}
+                  className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300"
+                >
+                  <h4 className="text-xl font-semibold text-gray-800">
+                    {name}
+                  </h4>
 
-                <p className="text-gray-600 mt-2">{`Name: ${name}`}</p>
-                <p className="text-gray-600 mt-2">{`Token Symbol: ${tokenSymbol}`}</p>
-                <div className="mt-4 flex space-x-2">
-                  <span className="inline-block bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">
-                    tag
-                  </span>
+                  <p className="text-gray-600 mt-2">{`Name: ${name}`}</p>
+                  <p className="text-gray-600 mt-2">{`Token Symbol: ${tokenSymbol}`}</p>
+                  <div className="mt-4 flex space-x-2">
+                    <span className="inline-block bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full">
+                      tag
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

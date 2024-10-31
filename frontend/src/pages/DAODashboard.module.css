@@ -110,6 +110,42 @@
   margin-top: 24px;
   text-align: left;
 }
+#contenedor {
+  color: black;
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #333333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  resize: vertical; /* Permitir que el usuario ajuste la altura */
+  font-family: inherit;
+  font-size: 1rem;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s ease;
+
+  /* Placeholder styling */
+  &::placeholder {
+    color: #999;
+  }
+
+  /* Hover and Focus States */
+  &:hover {
+    border-color: #ccc;
+  }
+
+  &:focus {
+    border-color: #007aff;
+    background-color: #fff;
+  }
+}
+
 
 .currentProposal h2,
 .pastProposals h2 {

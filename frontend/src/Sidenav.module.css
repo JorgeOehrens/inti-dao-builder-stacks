@@ -1,0 +1,53 @@
+/* Sidenav.module.css */
+.sidenav {
+    width: 250px;
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .sidenav-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .back-button {
+    align-self: flex-start;
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+  
+  .profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px 0;
+  }
+  
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .nav-links a {
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+  
+  .new-proposal-button {
+    margin-top: auto;
+    background-color: #4A90E2;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }

@@ -29,6 +29,8 @@
 {
     name-dao : (string-ascii 32),
     type-dao: (string-ascii 32),
+    privacy-dao: (string-ascii 32),
+
     ens-subdomain : (string-ascii 32),
     description : (string-ascii 32),
     token-name: (string-ascii 32),
@@ -42,6 +44,8 @@
 (define-public (create-listing
   (name-dao (string-ascii 32))
   (type-dao (string-ascii 32))
+  (privacy-dao (string-ascii 32))
+
   (ens-subdomain (string-ascii 32))
   (description (string-ascii 32))
   (token-name (string-ascii 32))
@@ -51,6 +55,7 @@
       (map-set listings-daos listing-id
         (tuple (name-dao name-dao)
                (type-dao type-dao)
+                (privacy-dao privacy-dao )
                (ens-subdomain ens-subdomain)
                (description description)
                (token-name token-name)

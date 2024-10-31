@@ -18,6 +18,7 @@ const DAOFeed: React.FC = () => {
         try {
           const options = {
             contractAddress: "ST1DT3KBGQZXZAQJZ0EDH0PQ2N0QTWC6XW5EQQXHM",
+
             contractName: "v3DAO",
             functionName: "get-listing",
             functionArgs: [uintCV(i)],
@@ -62,6 +63,7 @@ const DAOFeed: React.FC = () => {
               <Link
                 to={`/dashboard/${index}`}
                 key={index}
+
                 className={styles.daoTile}
               >
                 <h2>{name}</h2>

@@ -11,6 +11,7 @@
 
 🎥 **Demo Video**: [Mira nuestro video de demo en YouTube](https://www.youtube.com/watch?v=b_C1sGxKCdc&ab_channel=mentemaestra)  
 📑 **Pitch Deck**: [Revisa nuestra propuesta de valor ✨](https://inti-dao-builder-92w4bz7.gamma.site/)
+💻**Data Room**: [Revisa la información escencial de INTI ✨](https://tinyurl.com/23c6exrk)
 
 💻 **Data Room**: [Revisa la información escencial de INTI ✨](https://tinyurl.com/23c6exrk)
 

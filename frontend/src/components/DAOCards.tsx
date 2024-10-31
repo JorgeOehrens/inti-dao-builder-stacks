@@ -3,6 +3,7 @@ import { StacksTestnet } from "@stacks/network";
 import { callReadOnlyFunction, uintCV } from "@stacks/transactions";
 import { Link } from "react-router-dom";
 
+
 function DAOCards() {
   const [results, setResults] = useState<any[]>([]);
 
@@ -16,6 +17,7 @@ function DAOCards() {
         try {
           const options = {
             contractAddress: "ST1DT3KBGQZXZAQJZ0EDH0PQ2N0QTWC6XW5EQQXHM",
+
             contractName: "v3DAO",
             functionName: "get-listing",
             functionArgs: [uintCV(i)],

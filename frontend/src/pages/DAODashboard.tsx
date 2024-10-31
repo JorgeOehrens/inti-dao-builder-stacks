@@ -43,6 +43,7 @@ const DAODashboard: React.FC = () => {
     try {
       const listingResult = await callReadOnlyFunction({
         contractAddress: "ST1DT3KBGQZXZAQJZ0EDH0PQ2N0QTWC6XW5EQQXHM",
+
         contractName: "v3DAO",
         functionName: "get-listing",
         functionArgs: [uintCV(parseInt(daoId))],
@@ -134,6 +135,7 @@ const DAODashboard: React.FC = () => {
 
     const options = {
       contractAddress: "ST1DT3KBGQZXZAQJZ0EDH0PQ2N0QTWC6XW5EQQXHM",
+
       contractName: "v3DAOToken",
       functionName: "mint",
       functionArgs: [
@@ -165,6 +167,7 @@ const DAODashboard: React.FC = () => {
 
       <div className={styles.centralPanel}>
         <div className={styles.glassContainer}>
+
           <h1>
             {daoData?.value?.data["name-dao"]?.data || "DAO Dashboard"}{" "}
             Dashboard
@@ -214,6 +217,7 @@ const DAODashboard: React.FC = () => {
               Submit Proposal
             </button>
           </div>
+
         </div>
       </div>
     </div>

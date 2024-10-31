@@ -7,6 +7,7 @@ function DefineMembership() {
   const [symbol, setSymbol] = useState("");
   const [, setTokens] = useState(1);
   const [] = useState(100);
+
   const navigate = useNavigate();
 
   // Cargar valores desde localStorage cuando se monte el componente
@@ -32,6 +33,7 @@ function DefineMembership() {
     setSymbol(value);
     localStorage.setItem("tokenSymbol", value);
   };
+
 
   const handleNext = () => {
     navigate("/select-governance");

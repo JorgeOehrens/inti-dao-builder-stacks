@@ -59,6 +59,7 @@ function DeployDao() {
       initialTokens,
       stringAsciiCV(subdomainDao),
       stringAsciiCV(descriptionDao),
+
       stringAsciiCV(symbolDao), // token-symbol
       stringAsciiCV(symbolDao), // token-name (usando el mismo valor de symbolDao para ejemplo)
     ];

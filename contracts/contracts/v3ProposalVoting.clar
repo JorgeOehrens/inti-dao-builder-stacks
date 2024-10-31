@@ -18,6 +18,7 @@
 
 (define-data-var proposals-nonce uint u0)
 
+
 ;; Map definitions
 (define-map proposals
     uint
@@ -25,6 +26,7 @@
         votes-for: uint,
         question: (string-ascii 32),
         votes-against: uint,
+
         dao-id: uint,
         concluded: bool,
         passed: bool,
@@ -33,7 +35,6 @@
 )
 
 (define-map member-total-votes {proposal: uint, voter: principal} uint)
-
 
 ;; Public function to create a new proposal}
 
@@ -66,6 +67,7 @@
     )
   )
 )
+
 
 
 ;; Function to get a user's SFT balance for a specific DAO *example*

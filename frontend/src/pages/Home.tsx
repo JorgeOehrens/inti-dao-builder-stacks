@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { AppConfig, UserSession } from "@stacks/connect";
 import { UserData } from "@stacks/auth";
 
-
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import DAOCards from "../components/DAOCards";
@@ -26,12 +25,9 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Your Header and other sections */}
       <Header />
       <Hero />
       <DAOCards />
-
-      {/* Flexbox will push the footer to the bottom */}
 
       <Footer />
     </div>

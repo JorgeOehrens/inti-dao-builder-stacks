@@ -1,18 +1,36 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
-import ProgressBar from "./ProgressBar"; // Import the progress bar component
-import { stringAsciiCV } from "@stacks/transactions"; // Importa stringAsciiCV para manejar strings
+import { useNavigate } from "react-router-dom";
+import ProgressBar from "./ProgressBar";
+import { stringAsciiCV } from "@stacks/transactions";
 import { AppConfig, openContractCall, UserSession } from "@stacks/connect";
 import { StacksTestnet } from "@stacks/network";
 
-
 function DeployDao() {
+  const localNameDao = localStorage.getItem("daoName") ?? "";
+  const localSymbolDao = localStorage.getItem("tokenName") ?? "";
+  const localDaoDescription = localStorage.getItem("daoDescription") ?? "";
+  const localDaoSubdomain = localStorage.getItem("daoSubdomain") ?? "";
+  const localMinimumParticipation =
+    localStorage.getItem("minimumParticipation") ?? "";
+  const localSelectedDaoType = localStorage.getItem("selectedDaoType") ?? "";
+  const localSupportThreshold = localStorage.getItem("supportThreshold") ?? "";
+
   const [blockchainConfirmed, setBlockchainConfirmed] = useState(false);
   const [daoConfirmed, setDaoConfirmed] = useState(false);
   const [votersConfirmed, setVotersConfirmed] = useState(false);
   const [votingParamsConfirmed, setVotingParamsConfirmed] = useState(false);
-  const [nameDao, setNameDao] = useState("");
-  const [symbolDao, setSymbolDao] = useState("");
+  const [nameDao, setNameDao] = useState(localNameDao);
+  const [symbolDao, setSymbolDao] = useState(localSymbolDao);
+  const [descriptionDao, setDescriptionDao] = useState(localDaoDescription);
+  const [subdomainDao, setSubdomainDao] = useState(localDaoSubdomain);
+  const [minimunParticipation, setMinimunParticipation] = useState(
+    localMinimumParticipation
+  );
+  const [minimunSelectedDaoType, setSelectedDaoType] =
+    useState(localSelectedDaoType);
+  const [supportThreshold, setSupportThreshold] = useState(
+    localSupportThreshold
+  );
 
   const [, setLoggedIn] = useState(false);
   const appConfig = new AppConfig(["publish_data"]);
@@ -60,7 +78,6 @@ function DeployDao() {
     } catch (error) {
       console.error("Error in contract call:", error);
     }
-
   };
 
   const handleDeploy = () => {
@@ -73,7 +90,6 @@ function DeployDao() {
       <p className="text-lg mb-6">
         Double-check that everything is correct before deploying your DAO.
       </p>
-
 
       <div className="mb-6 p-4 border rounded-md bg-gray-50">
         <h2 className="text-xl font-semibold mb-2">
@@ -106,36 +122,11 @@ function DeployDao() {
           </span>
         </h2>
         <p>Logo: 🟡</p>
-        <label className="block text-gray-700 mb-2">
-          <span className="mr-4">Name:</span>
-          <input
-            type="text"
-            value={nameDao}
-            onChange={(e) => setNameDao(e.target.value)}
-            className="border p-2 w-1/2"
-            placeholder="Enter DAO Name"
-          />
-        </label>
-        <label className="block text-gray-700 mb-2">
-          <span className="mr-4">Symbol:</span>
+        <p>Name: {nameDao}</p>
+        <p>Symbol: {symbolDao}</p>
 
-          <input
-            type="text"
-            value={symbolDao}
-            onChange={(e) => setSymbolDao(e.target.value)}
-            className="border p-2 w-1/2 "
-            placeholder="Enter DAO Symbol"
-          />
-        </label>
-
-        <p>ENS Subdomain: salvaLaMomia.dao.eth</p>
-        <p>Summary: Test DAO</p>
-        <p>
-          Links:{" "}
-          <a href="http://salvalamomia.org" className="text-blue-500 underline">
-            SalvaLaMomia
-          </a>
-        </p>
+        <p>ENS Subdomain: {subdomainDao}</p>
+        <p>Description: {descriptionDao}</p>
 
         <div className="flex items-center mt-4">
           <input
@@ -149,7 +140,6 @@ function DeployDao() {
           </label>
         </div>
       </div>
-
 
       <div className="mb-6 p-4 border rounded-md bg-gray-50">
         <h2 className="text-xl font-semibold mb-2">
@@ -174,7 +164,6 @@ function DeployDao() {
           </label>
         </div>
       </div>
-
 
       <div className="mb-6 p-4 border rounded-md bg-gray-50">
         <h2 className="text-xl font-semibold mb-2">
@@ -205,7 +194,6 @@ function DeployDao() {
       <button
         className="mt-6 px-6 py-3 rounded-md bg-red-500 text-white hover:bg-blue-600"
         onClick={handleDeploy}
-
       >
         Deploy your DAO
       </button>

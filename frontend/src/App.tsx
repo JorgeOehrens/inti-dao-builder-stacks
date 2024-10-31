@@ -9,7 +9,8 @@ import DeployDao from "./components/DeployDao";
 import ConfirmationPage from "./components/ConfirmationPage";
 import Home from "./pages/Home.tsx";
 import DAOFeed from "./pages/DAOFeed/DAOFeed"; 
-import DAODashboard from './pages/DAODashboard';
+import DAOList from './components/DAOList.tsx';
+import DAODashboard from './pages/DAODashboard.tsx';
 import Tokens from "./pages/Tokens";   
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -37,6 +38,9 @@ function App() {
         <Route path="/daofeed" element={<DAOFeed />} />
         <Route path="/dashboard/:daoId" element={<DAODashboard />} /> 
         <Route path="/tokens" element={<Tokens />} />
+        <Route path="/" element={<DAOList />} />
+        <Route path="/dao/mountain-adventure" element={<DAODashboard />} />
+        
       </Routes>
     </Router>
   );

@@ -1,16 +1,25 @@
 // DAODashboard.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { UserSession, AppConfig, showConnect } from '@stacks/connect';
+import { StacksTestnet } from '@stacks/network';
+import { signMessage } from '@stacks/transactions';
 import styles from './DAODashboard.module.css';
+
+// Configuration for Stacks user session
+const appConfig = new AppConfig(['store_write', 'publish_data']);
+const userSession = new UserSession({ appConfig });
 
 const DAODashboard: React.FC = () => {
   const { daoId } = useParams();
+  const [isConnected, setIsConnected] = useState(false);
+  const [activityLevel, setActivityLevel] = useState(0); // Mock activity level
 
   // Mock DAO data
   const daoData = {
     id: daoId,
     name: 'Mountain Adventure',
-    profilePic: 'https://via.placeholder.com/100', // Placeholder profile picture
+    profilePic: 'https://ipfs.io/ipfs/QmT6hP8j1XKd8EY2dsLn5zKveV6Ma9pFZ9a2m9FSPp4d8e', // Example IPFS image
     members: 1200,
     liquidity: '$500,000',
     transactions: 200,
@@ -18,15 +27,50 @@ const DAODashboard: React.FC = () => {
     proposalsVoted: 45,
   };
 
-  // Mock past proposals
-  const pastProposals = [
-    { id: 1, title: 'Expand Mountain Trails', votes: 450, upvoted: true },
-    { id: 2, title: 'Create New Campsites', votes: 320, upvoted: false },
-    { id: 3, title: 'Partner with Local Guides', votes: 600, upvoted: true },
-  ];
-
-  // Current proposal that is up for voting
   const currentProposal = { id: 4, title: 'Increase Safety Measures on Trails' };
+
+  // Connect to wallet
+  const connectWallet = async () => {
+    showConnect({
+      appDetails: {
+        name: "DAO Dashboard",
+        icon: window.location.origin + "/icon.png",
+      },
+      userSession,
+      onFinish: () => {
+        setIsConnected(true);
+        checkWalletActivity();
+      },
+    });
+  };
+
+  // Mock check wallet activity level
+  const checkWalletActivity = async () => {
+    // Replace this mock logic with actual API call to check wallet activity level
+    setActivityLevel(2); // e.g., 0 for inactive, 1 for medium, 2 for high activity
+  };
+
+  // Voting logic
+  const handleVote = async () => {
+    if (!isConnected) {
+      connectWallet();
+      return;
+    }
+
+    // Prompt for message signing to verify user
+    const message = "Vote Confirmation";
+    const options = { message };
+    const signedMessage = await userSession.signMessage(options);
+
+    // Verify activity level allows voting
+    if (activityLevel < 1) {
+      alert("Your wallet activity level does not meet the requirements to vote on this proposal.");
+      return;
+    }
+
+    alert(`Vote registered! Signature: ${signedMessage}`);
+    // You would continue with vote submission logic here
+  };
 
   return (
     <div className={styles.dashboardContainer}>
@@ -44,12 +88,8 @@ const DAODashboard: React.FC = () => {
       {/* Central Panel with Glassmorphism Effect */}
       <div className={styles.centralPanel}>
         <div className={styles.glassContainer}>
-          {/* DAO Profile Picture */}
           <img src={daoData.profilePic} alt={`${daoData.name} profile`} className={styles.profilePic} />
-
           <h1>{daoData.name} Dashboard</h1>
-
-          {/* DAO Statistics */}
           <div className={styles.stats}>
             <p>Members: {daoData.members}</p>
             <p>Current Liquidity: {daoData.liquidity}</p>
@@ -63,22 +103,10 @@ const DAODashboard: React.FC = () => {
             <h2>Current Proposal</h2>
             <div className={styles.proposalTile}>
               <h3>{currentProposal.title}</h3>
-              <button className={styles.voteButton}>Vote Now</button>
+              <button className={styles.voteButton} onClick={handleVote}>
+                Vote Now
+              </button>
             </div>
-          </div>
-
-          {/* Past Proposals Section */}
-          <div className={styles.pastProposals}>
-            <h2>Past Proposals</h2>
-            {pastProposals.map((proposal) => (
-              <div key={proposal.id} className={styles.proposalTile}>
-                <h3>{proposal.title}</h3>
-                <p>Votes: {proposal.votes}</p>
-                <span className={proposal.upvoted ? styles.thumbUp : styles.thumbDown}>
-                  {proposal.upvoted ? '👍' : '👎'}
-                </span>
-              </div>
-            ))}
           </div>
         </div>
       </div>

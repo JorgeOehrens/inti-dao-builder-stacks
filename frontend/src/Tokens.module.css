@@ -1,0 +1,41 @@
+/* Tokens.module.css */
+.tokens-page {
+  padding: 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.tokens-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.token-tile {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: #333333;
+  transition: transform 0.2s;
+}
+
+.token-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.token-info h2 {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.token-info p {
+  font-size: 0.9em;
+  margin: 4px 0;
+  color: #666666;
+}

@@ -1,21 +1,32 @@
-function DAOTile({ dao }: { dao: { name: string; tags: string[]; description: string } }) {
-  return (
-    <div className="bg-white rounded-lg shadow-md p-6">
-      <h3 className="text-xl font-semibold text-gray-800" style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 600 }} >{dao.name}</h3>
+import { Link } from "react-router-dom";
 
-      <p className="text-gray-600 mt-2">{dao.description}</p>
-      <div className="mt-4 flex gap-2">
-        {dao.tags.map((tag, index) => (
-          <span
-            key={index}
-            className="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
+interface DAOTileProps {
+  dao: {
+    name: string;
+    description: string;
+    tags: string[];
+  };
 }
+
+const DAOTile = ({ dao }: DAOTileProps) => {
+  return (
+    <Link to="/dao/mountain-adventure" className="dao-tile-link">
+      <div className="p-6 bg-white shadow-md rounded-lg hover:shadow-lg transition-shadow">
+        <h3 className="text-2xl font-semibold mb-2">{dao.name}</h3>
+        <p className="text-gray-700 mb-4">{dao.description}</p>
+        <div className="flex flex-wrap gap-2">
+          {dao.tags.map((tag, index) => (
+            <span
+              key={index}
+              className="bg-gray-200 text-gray-800 px-2 py-1 rounded text-sm"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </Link>
+  );
+};
 
 export default DAOTile;

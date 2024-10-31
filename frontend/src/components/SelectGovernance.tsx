@@ -1,26 +1,39 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import ProgressBar from './ProgressBar'; // Import the progress bar component
-
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import ProgressBar from "./ProgressBar";
 
 function SelectGovernance() {
-  const [supportThreshold, setSupportThreshold] = useState(50);
-  const [minimumParticipation, setMinimumParticipation] = useState(15);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
+  const [supportThreshold, setSupportThreshold] = useState(() =>
+    parseInt(localStorage.getItem("supportThreshold") ?? "50")
+  );
+  const [minimumParticipation, setMinimumParticipation] = useState(() =>
+    parseInt(localStorage.getItem("minimumParticipation") ?? "15")
+  );
+
+  // Save to localStorage whenever the value changes
+  useEffect(() => {
+    localStorage.setItem("supportThreshold", supportThreshold.toString());
+  }, [supportThreshold]);
+
+  useEffect(() => {
+    localStorage.setItem(
+      "minimumParticipation",
+      minimumParticipation.toString()
+    );
+  }, [minimumParticipation]);
 
   const handleNext = () => {
-    // Perform any validation or logic if needed
-    // Navigate to the next step (Deploy DAO)
     navigate("/deploy-dao");
   };
 
   const handleBack = () => {
-    navigate('/define-membership'); // Navigate back to the previous step
+    navigate("/define-membership");
   };
 
   return (
     <div className="container mx-auto py-10">
-      {/* Progress Bar - 4 out of 5 steps */} 
+      {/* Progress Bar - 4 out of 5 steps */}
       <ProgressBar currentStep={4} totalSteps={5} />
       <h1 className="text-3xl font-bold mb-4">Select Governance Settings</h1>
 
@@ -99,11 +112,16 @@ function SelectGovernance() {
 
       {/* Navigation Buttons */}
       <div className="flex justify-between">
-        <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md" onClick={handleBack}>
+        <button
+          className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md"
+          onClick={handleBack}
+        >
           Back
         </button>
-        <button className="bg-red-500 text-white px-4 py-2 rounded-md" onClick={handleNext}>
-
+        <button
+          className="bg-red-500 text-white px-4 py-2 rounded-md"
+          onClick={handleNext}
+        >
           Next
         </button>
       </div>

@@ -1,5 +1,4 @@
 ## Hackathon Stacks
-Inti: DAO Builder es una aplicación descentralizada (dApp) que opera sobre Bitcoin, utilizando Stacks e Internet Computer Protocol (ICP). Permite la creación rápida y económica de Organizaciones Autónomas Descentralizadas (DAOs) con una interfaz intuitiva "NO CODE".
 
 # INTI: DAO Builder 🌞
 
@@ -9,12 +8,13 @@ Inti: DAO Builder es una aplicación descentralizada (dApp) que opera sobre Bitc
 
 🎥 **Demo Video**: [Mira nuestro video de demo en YouTube](https://www.youtube.com/watch?v=b_C1sGxKCdc&ab_channel=mentemaestra)  
 📑 **Pitch Deck**: [Revisa nuestra propuesta de valor ✨](https://inti-dao-builder-92w4bz7.gamma.site/)
+💻**Data Room**: [Revisa la información escencial de INTI ✨](https://tinyurl.com/23c6exrk)
 
 ## 🌐 Enlaces del Proyecto
 
-- 🔗 **Aplicación Web**: [Accede a la app](https://hackaton-stacks.vercel.app/)  
-- 📚 **Documentación GitBook**: [Lee nuestra documentación completa](https://inti-dao-builder.gitbook.io/inti-dao-builder-docs)  
-- 🐦 **X (Twitter)**: [Síguenos en X](https://x.com/intidao)  
+- 🔗 **Aplicación Web**: [Accede a la app](https://hackaton-stacks.vercel.app/)
+- 📚 **Documentación GitBook**: [Lee nuestra documentación completa](https://inti-dao-builder.gitbook.io/inti-dao-builder-docs)
+- 🐦 **X (Twitter)**: [Síguenos en X](https://x.com/intidao)
 - 💼 **LinkedIn**: [Mira nuestras actualizaciones en LinkedIn](https://www.linkedin.com/company/inti-dao-builder/posts/?feedView=all)
 
 ## 📦 Instalación y Pruebas
@@ -24,6 +24,7 @@ Inti: DAO Builder es una aplicación descentralizada (dApp) que opera sobre Bitc
 - Node.js (v14 o superior)
 - npm o yarn
 - Git
+
 ### Dependencias necesarias:
 
 - **React**: Biblioteca para la construcción de interfaces de usuario.
@@ -45,6 +46,7 @@ Inti: DAO Builder es una aplicación descentralizada (dApp) que opera sobre Bitc
    npm install
    npm run dev
    	2.	Abre http://localhost:3000 para ver la aplicación en tu navegador.
+   ```
 
 Realizar pruebas:
 
@@ -64,4 +66,3 @@ Con INTI: DAO Builder estamos construyendo el futuro de las organizaciones desce
 Si tienes alguna pregunta o sugerencia, ¡no dudes en contactarnos!
 
 ✨ INTI: Empowering Communities. Building the Future.
-

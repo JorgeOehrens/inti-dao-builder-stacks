@@ -1,14 +1,14 @@
 // DAOList.js
-import React from 'react';
-import { Link } from 'react-router-dom';
-import DAOTile from './DAOTile';
+import { Link } from "react-router-dom";
+import DAOTile from "./DAOTile";
 
 function DAOList() {
   const daoList = [
     {
       id: 1,
       name: "Polygon Community Treasury",
-      description: "A protocol-funded support treasury for funding innovations.",
+      description:
+        "A protocol-funded support treasury for funding innovations.",
       tags: ["Governance", "Token-based"],
     },
     {
@@ -30,7 +30,7 @@ function DAOList() {
           <DAOTile key={dao.id} dao={dao} />
         ))}
       </div>
-      
+
       {/* Show More Button */}
       <div className="text-center mt-8">
         <Link to="/dao/mountain-adventure">

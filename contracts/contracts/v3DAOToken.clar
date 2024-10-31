@@ -6,7 +6,7 @@
 (impl-trait .sip013-semi-fungible-token-trait.sip013-semi-fungible-token-trait)
 (impl-trait .sip013-transfer-many-trait.sip013-transfer-many-trait)
 
-(define-fungible-token semi-fungible-token)
+(define-fungible-token INTI)
 (define-non-fungible-token semi-fungible-token-id {token-id: uint, owner: principal})
 (define-map token-balances {token-id: uint, owner: principal} uint)
 (define-map token-supplies uint uint)
@@ -33,7 +33,7 @@
     ))
 
 (define-read-only (get-overall-balance (who principal))
-    (ok (ft-get-balance semi-fungible-token who))
+    (ok (ft-get-balance INTI who))
 )
 
 (define-read-only (get-total-supply (token-id uint))
@@ -41,7 +41,7 @@
 )
 
 (define-read-only (get-overall-supply)
-    (ok (ft-get-supply semi-fungible-token))
+    (ok (ft-get-supply INTI))
 )
 
 (define-read-only (get-decimals (token-id uint))
@@ -54,19 +54,19 @@
 
 ;;#[allow(unchecked_data)]
 (define-public (create-dao (dao-id uint) (initial-tokens uint) (dao-owner principal))
-    (begin
-        (asserts! (is-eq tx-sender contract-owner) err-owner-only)
-        (try! (ft-mint? semi-fungible-token initial-tokens dao-owner)) 
+  (begin
+    (try! (ft-mint? INTI initial-tokens dao-owner))
 
-        (map-set dao-owners dao-id dao-owner) 
-        (try! (ft-mint? semi-fungible-token initial-tokens dao-owner)) 
-        (map-set token-supplies dao-id (+ (unwrap-panic (get-total-supply dao-id)) initial-tokens))
+    (map-set dao-owners dao-id dao-owner) 
 
-        (set-balance dao-id initial-tokens dao-owner) 
+    (map-set token-supplies dao-id (+ (unwrap-panic (get-total-supply dao-id)) initial-tokens))
 
-        (ok true)
-    )
+    (set-balance dao-id initial-tokens dao-owner)
+
+    (ok true)
+  )
 )
+
 
 (define-read-only (dao-exists (dao-id uint))
     (ok (is-some (map-get? dao-owners dao-id)))
@@ -80,7 +80,7 @@
         )
         (asserts! (or (is-eq sender tx-sender) (is-eq sender contract-caller)) err-invalid-sender)
         (asserts! (<= amount sender-balance) err-insufficient-balance)
-        (try! (ft-transfer? semi-fungible-token amount sender recipient))
+        (try! (ft-transfer? INTI amount sender recipient))
         (try! (tag-nft-token-id {token-id: token-id, owner: sender}))
         (try! (tag-nft-token-id {token-id: token-id, owner: recipient}))
         (set-balance token-id (- sender-balance amount) sender)
@@ -93,8 +93,7 @@
 ;;#[allow(unchecked_data)]
 (define-public (mint (token-id uint) (amount uint) (recipient principal))
     (begin
-        (asserts! (is-eq tx-sender contract-owner) err-owner-only)
-        (try! (ft-mint? semi-fungible-token amount recipient))
+        (try! (ft-mint? INTI amount recipient))
         (try! (tag-nft-token-id {token-id: token-id, owner: recipient}))
         (set-balance token-id (+ (get-balance-uint token-id recipient) amount) recipient)
         (map-set token-supplies token-id (+ (unwrap-panic (get-total-supply token-id)) amount))

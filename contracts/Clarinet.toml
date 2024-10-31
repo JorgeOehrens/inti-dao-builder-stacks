@@ -25,20 +25,12 @@ path = 'contracts/v3DAOToken.clar'
 clarity_version = 2
 epoch = 2.5
 
-[contracts.v3Escrow]
-path = 'contracts/v3Escrow.clar'
-clarity_version = 2
-epoch = 2.5
-
 [contracts.v3ProposalVoting]
 path = 'contracts/v3ProposalVoting.clar'
 clarity_version = 2
 epoch = 2.5
 
-[contracts.v3Treasury]
-path = 'contracts/v3Treasury.clar'
-clarity_version = 2
-epoch = 2.5
+
 [repl.analysis]
 passes = ['check_checker']
 

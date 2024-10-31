@@ -21,6 +21,7 @@
     uint
     {
         votes-for: uint,
+        question: (string-ascii 32),
         votes-against: uint,
         start-block-height: uint,
         end-block-height: uint,
@@ -34,12 +35,12 @@
 (define-map member-total-votes {proposal: uint, voter: principal} uint)
 
 ;; Function to add proposals
-(define-public (add-proposal (proposal uint) (data {start-block-height: uint, end-block-height: uint, proposer: principal, dao-id: uint}))
+(define-public (add-proposal (proposal uint) (data {question: (string-ascii 32), start-block-height: uint, end-block-height: uint, proposer: principal, dao-id: uint}))
 	(begin
 		(print {event: "propose", proposal: proposal, proposer: tx-sender, dao-id: (get dao-id data)})
 		(ok (asserts! 
 			(map-insert proposals proposal 
-				(merge {votes-for: u0, votes-against: u0, concluded: false, passed: false, dao-id: (get dao-id data)} data)
+				(merge {question:(get question data) , votes-for: u0, votes-against: u0, concluded: false, passed: false, dao-id: (get dao-id data)} data)
 			) 
 			err-proposal-already-exists))
 	)

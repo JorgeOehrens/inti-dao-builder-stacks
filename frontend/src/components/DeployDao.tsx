@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ProgressBar from "./ProgressBar";
-import { stringAsciiCV } from "@stacks/transactions";
+import { stringAsciiCV, uintCV } from "@stacks/transactions";
 import { AppConfig, openContractCall, UserSession } from "@stacks/connect";
 import { StacksTestnet } from "@stacks/network";
 
@@ -10,27 +10,18 @@ function DeployDao() {
   const localSymbolDao = localStorage.getItem("tokenName") ?? "";
   const localDaoDescription = localStorage.getItem("daoDescription") ?? "";
   const localDaoSubdomain = localStorage.getItem("daoSubdomain") ?? "";
-  const localMinimumParticipation =
-    localStorage.getItem("minimumParticipation") ?? "";
   const localSelectedDaoType = localStorage.getItem("selectedDaoType") ?? "";
-  const localSupportThreshold = localStorage.getItem("supportThreshold") ?? "";
 
   const [blockchainConfirmed, setBlockchainConfirmed] = useState(false);
   const [daoConfirmed, setDaoConfirmed] = useState(false);
   const [votersConfirmed, setVotersConfirmed] = useState(false);
   const [votingParamsConfirmed, setVotingParamsConfirmed] = useState(false);
-  const [nameDao, setNameDao] = useState(localNameDao);
-  const [symbolDao, setSymbolDao] = useState(localSymbolDao);
-  const [descriptionDao, setDescriptionDao] = useState(localDaoDescription);
-  const [subdomainDao, setSubdomainDao] = useState(localDaoSubdomain);
-  const [minimunParticipation, setMinimunParticipation] = useState(
-    localMinimumParticipation
-  );
-  const [minimunSelectedDaoType, setSelectedDaoType] =
-    useState(localSelectedDaoType);
-  const [supportThreshold, setSupportThreshold] = useState(
-    localSupportThreshold
-  );
+  const [nameDao] = useState(localNameDao);
+  const [symbolDao] = useState(localSymbolDao);
+  const [descriptionDao] = useState(localDaoDescription);
+  const [subdomainDao] = useState(localDaoSubdomain);
+  const [typeDao] = useState(localSelectedDaoType);
+  const [privacyDao] = useState("1");
 
   const [, setLoggedIn] = useState(false);
   const appConfig = new AppConfig(["publish_data"]);
@@ -55,11 +46,22 @@ function DeployDao() {
       return;
     }
 
-    const assetAddress = "STNMSHXM8WZT2DN4SDC1EHTYJY97012YF7CXRZF3";
-    const contractName = "TestFactoryDAO";
+    const assetAddress = "ST3RX2AKM4AGJ8YV0V319FRPRDVNVY9AYS1EMNFCP";
+    const contractName = "v3DAO";
     const functionName = "create-listing";
+    const initialTokens = uintCV(1); // Ejemplo: 1000 tokens iniciales
 
-    const functionArgs = [stringAsciiCV(nameDao), stringAsciiCV(symbolDao)];
+    const functionArgs = [
+      stringAsciiCV(nameDao), // name-dao
+      stringAsciiCV(typeDao),
+
+      stringAsciiCV(privacyDao),
+      initialTokens, // type-dao
+      stringAsciiCV(subdomainDao), // ens-subdomain
+      stringAsciiCV(descriptionDao), // description
+      stringAsciiCV(symbolDao), // token-symbol
+      stringAsciiCV(symbolDao), // token-name (usando el mismo valor de symbolDao para ejemplo)
+    ];
 
     const options = {
       contractAddress: assetAddress,
@@ -122,6 +124,9 @@ function DeployDao() {
           </span>
         </h2>
         <p>Logo: 🟡</p>
+        <p>Tipo: {typeDao}</p>
+        <p>Privacidad: {privacyDao}</p>
+
         <p>Name: {nameDao}</p>
         <p>Symbol: {symbolDao}</p>
 

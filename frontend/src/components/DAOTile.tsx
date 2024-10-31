@@ -1,7 +1,14 @@
-// DAOTile.js
 import { Link } from "react-router-dom";
 
-const DAOTile = ({ dao }) => {
+interface DAOTileProps {
+  dao: {
+    name: string;
+    description: string;
+    tags: string[];
+  };
+}
+
+const DAOTile = ({ dao }: DAOTileProps) => {
   return (
     <Link to="/dao/mountain-adventure" className="dao-tile-link">
       <div className="p-6 bg-white shadow-md rounded-lg hover:shadow-lg transition-shadow">

@@ -5,7 +5,6 @@ import { StacksTestnet } from "@stacks/network";
 import {
   callReadOnlyFunction,
   uintCV,
-  stringAsciiCV,
   standardPrincipalCV,
 } from "@stacks/transactions";
 import { openContractCall } from "@stacks/connect";
@@ -105,45 +104,28 @@ const DAODashboard: React.FC = () => {
       console.error("DAO ID is undefined");
       return;
     }
-    const proposalId = 1; // ID de la propuesta
-    const data = [
-      { key: "question", value: stringAsciiCV(proposalText) },
-      { key: "start-block-height", value: uintCV(11) },
-      { key: "end-block-height", value: uintCV(111) },
-      {
-        key: "proposer",
-        value: standardPrincipalCV(
-          userSession.loadUserData()?.profile.stxAddress?.testnet
-        ),
-      },
-      { key: "dao-id", value: uintCV(parseInt(daoId)) },
-    ];
-    const dataCV = data.map(({ key, value }) => ({ [key]: value }));
 
-    const options = {
-      contractAddress: "ST3RX2AKM4AGJ8YV0V319FRPRDVNVY9AYS1EMNFCP",
-      contractName: "v3ProposalVoting",
-      functionName: "add-proposal",
-      functionArgs: [
-        uintCV(proposalId), // ID de la propuesta
-        ...dataCV, // Usar spread operator para pasar los datos
-      ],
-      senderAddress: userSession.loadUserData().profile.stxAddress.testnet,
+    // const options = {
+    //   contractAddress: "ST3RX2AKM4AGJ8YV0V319FRPRDVNVY9AYS1EMNFCP",
+    //   contractName: "v3ProposalVoting",
+    //   functionName: "add-proposal",
+    //   functionArgs: [
+    //     uintCV(proposalId), // ID de la propuesta
+    //     ...dataCV, // Usar spread operator para pasar los datos
+    //   ],
+    //   senderAddress: userSession.loadUserData().profile.stxAddress.testnet,
 
-      network,
-    };
+    //   network,
+    // };
 
     try {
-      const result = await openContractCall(options);
+      const result = "await openContractCall(options);";
       console.log("Contract call result:", result);
     } catch (error) {
       console.error("Error in contract call:", error);
     }
   };
 
-  const handleDeploy = () => {
-    addProposal();
-  };
   const joinDao = async () => {
     if (!daoId) {
       console.error("DAO ID is undefined");

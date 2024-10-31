@@ -1,5 +1,3 @@
-import React from "react";
-
 const EagleAssociation = () => {
   return (
     <div className="p-8 bg-gray-50 min-h-screen">

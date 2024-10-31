@@ -1,150 +1,163 @@
 /* DAODashboard.module.css */
 
 .dashboardContainer {
-    display: flex;
-    min-height: 100vh;
-    background-color: #bd3e3e;
-    color: #ffffff;
-  }
-  
-  .sidebar {
-    width: 250px;
-    padding: 20px;
-    background-color: rgba(31, 31, 31, 0.8);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .sidebar h2 {
-    margin-bottom: 20px;
-  }
-  
-  .sidebar nav {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .sidebar button {
-    background: none;
-    border: none;
-    color: #ffffff;
-    padding: 10px;
-    text-align: left;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  
-  .sidebar button:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-  
-  .centralPanel {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-  }
-  
-  .glassContainer {
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    background: rgba(31, 31, 31, 0.8); /* Semi-transparent background */
-    backdrop-filter: blur(15px); /* Frosted glass effect */
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    color: #ffffff;
-    text-align: center;
-  }
-  
-  .profilePic {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin: 0 auto 20px auto; /* Centers the image horizontally */
-    display: block; /* Ensures centering works within its container */
-  }
-  
-  .glassContainer h1 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-  }
-  
-  .stats {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    font-size: 1.1rem;
-    padding: 20px 0;
-  }
-  
-  .stats p {
-    margin: 0;
-    padding: 8px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-  }
-  
-  .currentProposal {
-    margin-top: 20px;
-    text-align: left;
-  }
-  
-  .currentProposal h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .proposalTile {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px;
-    background-color: rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    margin-bottom: 10px;
-    transition: background-color 0.2s;
-  }
-  
-  .proposalTile:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-  }
-  
-  .voteButton {
-    padding: 8px 16px;
-    background-color: #4caf50;
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.2s;
-  }
-  
-  .voteButton:hover {
-    background-color: #45a049;
-  }
-  
-  .pastProposals {
-    margin-top: 20px;
-  }
-  
-  .pastProposals h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .thumbUp {
-    color: #4caf50;
-    font-size: 1.5rem;
-  }
-  
-  .thumbDown {
-    color: #f44336;
-    font-size: 1.5rem;
-  }
+  display: flex;
+  min-height: 100vh;
+  background-color: #c90101;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 280px;
+  padding: 20px;
+  background-color: rgb(199, 37, 62);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: #e0e0e0;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar button {
+  background: none;
+  border: none;
+  color: #d4d4d4;
+  padding: 12px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-size: 1rem;
+  border-radius: 6px;
+}
+
+.sidebar button:hover {
+  background: #444444;
+  color: #ffffff;
+}
+
+/* Central Panel styling */
+.centralPanel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: #1a1a1a;
+}
+
+.glassContainer {
+  width: 100%;
+  max-width: 600px;
+  padding: 24px;
+  background: rgba(47, 47, 47, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  text-align: center;
+}
+
+.profilePic {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin: 0 auto 20px auto;
+  display: block;
+  border: 2px solid #555555;
+}
+
+.glassContainer h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #e0e0e0;
+}
+
+/* Stats container styling */
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 1.1rem;
+  padding: 20px 0;
+  color: #cccccc;
+}
+
+.stats p {
+  margin: 0;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+/* Proposal styling */
+.currentProposal {
+  margin-top: 24px;
+  text-align: left;
+}
+
+.currentProposal h2,
+.pastProposals h2 {
+  font-size: 1.5rem;
+  margin-bottom: 14px;
+  color: #ff8a65;
+}
+
+.proposalTile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: background-color 0.2s;
+}
+
+.proposalTile:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Button styling */
+.joinButton,
+.voteButton {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s, transform 0.1s ease-in-out;
+}
+
+.joinButton:hover,
+.voteButton:hover {
+  background-color: #45a049;
+  transform: scale(1.02);
+}
+
+.thumbUp {
+  color: #4caf50;
+  font-size: 1.5rem;
+}
+
+.thumbDown {
+  color: #f44336;
+  font-size: 1.5rem;
+}

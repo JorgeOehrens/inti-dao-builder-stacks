@@ -6,7 +6,6 @@
 
 ;; traits
 ;;
-
 ;; token definitions
 ;;
 
@@ -30,6 +29,7 @@
     name-dao : (string-ascii 32),
     type-dao: (string-ascii 32),
     privacy-dao: (string-ascii 32),
+    initial-tokens: uint,
 
     ens-subdomain : (string-ascii 32),
     description : (string-ascii 32),
@@ -45,6 +45,7 @@
   (name-dao (string-ascii 32))
   (type-dao (string-ascii 32))
   (privacy-dao (string-ascii 32))
+  (initial-tokens uint)
 
   (ens-subdomain (string-ascii 32))
   (description (string-ascii 32))
@@ -55,6 +56,8 @@
       (map-set listings-daos listing-id
         (tuple (name-dao name-dao)
                (type-dao type-dao)
+                (initial-tokens initial-tokens)
+
                 (privacy-dao privacy-dao )
                (ens-subdomain ens-subdomain)
                (description description)
@@ -63,7 +66,7 @@
 
       (var-set listing-nonce (+ listing-id u1))
       
-        (try! (as-contract (contract-call? .v3DAOToken create-dao listing-id u100 tx-sender)))
+      (try! (contract-call? .v3DAOToken create-dao listing-id initial-tokens tx-sender))
 
 
       (ok listing-id)

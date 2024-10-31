@@ -1,29 +1,78 @@
-// DAOFeed.tsx
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styles from './DAOFeed.module.css';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { StacksTestnet } from "@stacks/network";
+import { callReadOnlyFunction, uintCV } from "@stacks/transactions";
+import styles from "./DAOFeed.module.css";
 
 const DAOFeed: React.FC = () => {
-  const daos = [
-    { id: 1, name: 'Mountain Adventure', description: 'Explore the heights of the mountains with this DAO.', members: 1200 },
-    { id: 2, name: 'Ocean Guardians', description: 'Protecting the oceans and marine life.', members: 500 },
-    { id: 3, name: 'Tech Innovators', description: 'A DAO for cutting-edge technology projects.', members: 850 },
-    { id: 4, name: 'Art Collectors', description: 'Discover and collect unique pieces of art.', members: 300 },
-    { id: 5, name: 'Environmental Warriors', description: 'Support initiatives to save the environment.', members: 900 },
-    // Add more DAO entries as needed
-  ];
+  const [results, setResults] = useState<any[]>([]);
+
+  useEffect(() => {
+    const network = new StacksTestnet();
+
+    const fetchContractData = async () => {
+      let fetchedResults: any[] = [];
+
+      for (let i = 0; i < 2; i++) {
+        // Ajusta el límite según la cantidad de DAOs que quieras mostrar
+        try {
+          const options = {
+            contractAddress: "ST3RX2AKM4AGJ8YV0V319FRPRDVNVY9AYS1EMNFCP",
+            contractName: "v3DAO",
+            functionName: "get-listing",
+            functionArgs: [uintCV(i)],
+            senderAddress: "STNMSHXM8WZT2DN4SDC1EHTYJY97012YF7CXRZF3",
+            network,
+          };
+
+          const result = await callReadOnlyFunction(options);
+          if (result) {
+            fetchedResults.push(result);
+          } else {
+            break; // Rompe el ciclo si no hay resultados
+          }
+        } catch (error) {
+          console.error(`Error fetching data for DAO index ${i}:`, error);
+          break;
+        }
+      }
+
+      setResults(fetchedResults);
+      console.log("Resultados obtenidos:", fetchedResults);
+    };
+
+    fetchContractData();
+  }, []);
 
   return (
     <div className={styles.daoFeedContainer}>
       <h1>DAO Feed</h1>
       <div className={styles.daoGrid}>
-        {daos.map((dao) => (
-          <Link to={`/dashboard/${dao.id}`} key={dao.id} className={styles.daoTile}>
-            <h2>{dao.name}</h2>
-            <p>{dao.description}</p>
-            <span>Members: {dao.members}</span>
-          </Link>
-        ))}
+        {results.length > 0 ? (
+          results.map((result, index) => {
+            const name = result.value?.data["name-dao"]?.data || "N/A";
+            const description =
+              result.value?.data["description"]?.data ||
+              "No description available";
+            const members = result.value?.data["members"]?.data || "N/A";
+
+            if (name === "N/A") return null;
+
+            return (
+              <Link
+                to={`/dashboard/${index + 1}`}
+                key={index + 1}
+                className={styles.daoTile}
+              >
+                <h2>{name}</h2>
+                <p>{description}</p>
+                <span>Members: {members}</span>
+              </Link>
+            );
+          })
+        ) : (
+          <p className="text-gray-500">Fetching DAO data...</p>
+        )}
       </div>
     </div>
   );

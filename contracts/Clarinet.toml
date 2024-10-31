@@ -5,7 +5,6 @@ authors = []
 telemetry = true
 cache_dir = './.cache'
 requirements = []
-
 [contracts.sip013-semi-fungible-token-trait]
 path = 'contracts/sip013-semi-fungible-token-trait.clar'
 clarity_version = 2

@@ -9,17 +9,38 @@ plan:
     - id: 0
       transactions:
         - contract-publish:
-            contract-name: FactoryDAO
-            expected-sender: STNMSHXM8WZT2DN4SDC1EHTYJY97012YF7CXRZF3
-            cost: 9631998
-            path: contracts/FactoryDAO.clar
+            contract-name: sip013-semi-fungible-token-trait
+            expected-sender: STDQ5YK11E70KN9ZABGPX2YKDAHM2HNX4F36HK3Q
+            cost: 10470
+            path: contracts/sip013-semi-fungible-token-trait.clar
             anchor-block-only: true
             clarity-version: 2
         - contract-publish:
-            contract-name: TestFactoryDAO
-            expected-sender: STNMSHXM8WZT2DN4SDC1EHTYJY97012YF7CXRZF3
-            cost: 9629850
-            path: contracts/TestFactoryDAO.clar
+            contract-name: sip013-transfer-many-trait
+            expected-sender: STDQ5YK11E70KN9ZABGPX2YKDAHM2HNX4F36HK3Q
+            cost: 4800
+            path: contracts/sip013-transfer-many-trait.clar
+            anchor-block-only: true
+            clarity-version: 2
+        - contract-publish:
+            contract-name: v3DAOToken
+            expected-sender: STDQ5YK11E70KN9ZABGPX2YKDAHM2HNX4F36HK3Q
+            cost: 60200
+            path: contracts/v3DAOToken.clar
+            anchor-block-only: true
+            clarity-version: 2
+        - contract-publish:
+            contract-name: v3DAO
+            expected-sender: STDQ5YK11E70KN9ZABGPX2YKDAHM2HNX4F36HK3Q
+            cost: 15540
+            path: contracts/v3DAO.clar
+            anchor-block-only: true
+            clarity-version: 2
+        - contract-publish:
+            contract-name: v3ProposalVoting
+            expected-sender: STDQ5YK11E70KN9ZABGPX2YKDAHM2HNX4F36HK3Q
+            cost: 34290
+            path: contracts/v3ProposalVoting.clar
             anchor-block-only: true
             clarity-version: 2
       epoch: "2.5"

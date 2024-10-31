@@ -9,17 +9,38 @@ plan:
     - id: 0
       transactions:
         - contract-publish:
-            contract-name: DAOToken
+            contract-name: sip013-semi-fungible-token-trait
             expected-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
-            cost: 23600
-            path: contracts/DAOToken.clar
+            cost: 10470
+            path: contracts/sip013-semi-fungible-token-trait.clar
             anchor-block-only: true
             clarity-version: 2
         - contract-publish:
-            contract-name: DAOCommunity
+            contract-name: sip013-transfer-many-trait
             expected-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
-            cost: 22840
-            path: contracts/DAOCommunity.clar
+            cost: 4800
+            path: contracts/sip013-transfer-many-trait.clar
+            anchor-block-only: true
+            clarity-version: 2
+        - contract-publish:
+            contract-name: v3DAOToken
+            expected-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
+            cost: 60200
+            path: contracts/v3DAOToken.clar
+            anchor-block-only: true
+            clarity-version: 2
+        - contract-publish:
+            contract-name: v3DAO
+            expected-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
+            cost: 15540
+            path: contracts/v3DAO.clar
+            anchor-block-only: true
+            clarity-version: 2
+        - contract-publish:
+            contract-name: v3ProposalVoting
+            expected-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
+            cost: 34290
+            path: contracts/v3ProposalVoting.clar
             anchor-block-only: true
             clarity-version: 2
       epoch: "2.5"

@@ -42,7 +42,7 @@ const DAODashboard: React.FC = () => {
 
     try {
       const listingResult = await callReadOnlyFunction({
-        contractAddress: "ST3RX2AKM4AGJ8YV0V319FRPRDVNVY9AYS1EMNFCP",
+        contractAddress: "ST1DT3KBGQZXZAQJZ0EDH0PQ2N0QTWC6XW5EQQXHM",
         contractName: "v3DAO",
         functionName: "get-listing",
         functionArgs: [uintCV(parseInt(daoId))],
@@ -52,7 +52,7 @@ const DAODashboard: React.FC = () => {
       });
 
       const supplyResult = await callReadOnlyFunction({
-        contractAddress: "ST3RX2AKM4AGJ8YV0V319FRPRDVNVY9AYS1EMNFCP",
+        contractAddress: "ST1DT3KBGQZXZAQJZ0EDH0PQ2N0QTWC6XW5EQQXHM",
         contractName: "v3DAOToken",
         functionName: "get-total-supply",
         functionArgs: [uintCV(parseInt(daoId))],
@@ -133,7 +133,7 @@ const DAODashboard: React.FC = () => {
     }
 
     const options = {
-      contractAddress: "ST3RX2AKM4AGJ8YV0V319FRPRDVNVY9AYS1EMNFCP",
+      contractAddress: "ST1DT3KBGQZXZAQJZ0EDH0PQ2N0QTWC6XW5EQQXHM",
       contractName: "v3DAOToken",
       functionName: "mint",
       functionArgs: [
@@ -165,11 +165,6 @@ const DAODashboard: React.FC = () => {
 
       <div className={styles.centralPanel}>
         <div className={styles.glassContainer}>
-          <img
-            src={daoData?.profilePic || "#"}
-            alt={`${daoData?.value?.name} profile`}
-            className={styles.profilePic}
-          />
           <h1>
             {daoData?.value?.data["name-dao"]?.data || "DAO Dashboard"}{" "}
             Dashboard
@@ -208,15 +203,17 @@ const DAODashboard: React.FC = () => {
           <button onClick={joinDao} className={styles.joinButton}>
             Join DAO
           </button>
-        </div>
-        <div className={styles.popup}>
-          <h2>Add Proposal</h2>
-          <textarea
-            value={proposalText}
-            onChange={(e) => setProposalText(e.target.value)}
-            placeholder="Enter proposal details..."
-          />
-          <button onClick={addProposal}>Submit Proposal</button>
+          <div className={styles.popup}>
+            <h2>Add Proposal</h2>
+            <textarea
+              value={proposalText}
+              onChange={(e) => setProposalText(e.target.value)}
+              placeholder="Enter proposal details..."
+            />
+            <button onClick={addProposal} className={styles.joinButton}>
+              Submit Proposal
+            </button>
+          </div>
         </div>
       </div>
     </div>

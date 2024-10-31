@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 function DefineMembership() {
   const [name, setName] = useState("");
   const [symbol, setSymbol] = useState("");
-  const [tokens, setTokens] = useState(1);
-  const [allocation] = useState(100);
+  const [, setTokens] = useState(1);
+  const [] = useState(100);
   const navigate = useNavigate();
 
   // Cargar valores desde localStorage cuando se monte el componente
@@ -31,11 +31,6 @@ function DefineMembership() {
     const value = e.target.value;
     setSymbol(value);
     localStorage.setItem("tokenSymbol", value);
-  };
-
-  const handleTokenChange = (newTokens: any) => {
-    setTokens(newTokens);
-    localStorage.setItem("tokenCount", newTokens);
   };
 
   const handleNext = () => {
@@ -95,43 +90,6 @@ function DefineMembership() {
       </div>
 
       {/* Distribute Tokens */}
-      <h2 className="text-xl font-semibold mt-6 mb-4">Distribute Tokens</h2>
-      <div className="bg-gray-100 p-4 rounded-md mb-4">
-        <p className="text-gray-600 mb-2">
-          Your connected wallet was automatically added to the distribution
-          list.
-        </p>
-
-        {/* Wallet Details */}
-        <div className="flex items-center justify-between p-2 bg-white rounded shadow-sm mb-2">
-          <div>
-            <p className="text-gray-700 font-semibold">0xF40...f5EB</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <button
-              className="border px-3 py-1 rounded text-gray-700"
-              onClick={() =>
-                handleTokenChange(tokens > 1 ? tokens - 1 : tokens)
-              }
-            >
-              -
-            </button>
-            <span>{tokens}</span>
-            <button
-              className="border px-3 py-1 rounded text-gray-700"
-              onClick={() => handleTokenChange(tokens + 1)}
-            >
-              +
-            </button>
-          </div>
-          <div>
-            <span>{allocation}%</span>
-          </div>
-        </div>
-
-        {/* Add Wallet Button */}
-        <button className="text-blue-500 text-sm underline">Add wallet</button>
-      </div>
 
       {/* Navigation Buttons */}
       <div className="flex justify-between">

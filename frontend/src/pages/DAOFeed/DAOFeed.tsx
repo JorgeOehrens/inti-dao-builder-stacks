@@ -17,7 +17,7 @@ const DAOFeed: React.FC = () => {
         // Ajusta el límite según la cantidad de DAOs que quieras mostrar
         try {
           const options = {
-            contractAddress: "ST3RX2AKM4AGJ8YV0V319FRPRDVNVY9AYS1EMNFCP",
+            contractAddress: "ST1DT3KBGQZXZAQJZ0EDH0PQ2N0QTWC6XW5EQQXHM",
             contractName: "v3DAO",
             functionName: "get-listing",
             functionArgs: [uintCV(i)],
@@ -60,8 +60,8 @@ const DAOFeed: React.FC = () => {
 
             return (
               <Link
-                to={`/dashboard/${index + 1}`}
-                key={index + 1}
+                to={`/dashboard/${index}`}
+                key={index}
                 className={styles.daoTile}
               >
                 <h2>{name}</h2>

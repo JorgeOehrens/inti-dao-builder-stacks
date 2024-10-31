@@ -1,3 +1,9 @@
+;; title: sip013-transfer-many-trait
+;; version:
+;; summary:
+;; description: 
+
+
 (define-trait sip013-transfer-many-trait
 	(
 		;; Transfer many tokens at once.

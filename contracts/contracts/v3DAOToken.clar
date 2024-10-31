@@ -1,3 +1,8 @@
+;; title: v3DAOToken
+;; version:
+;; summary:
+;; description: 
+
 (impl-trait .sip013-semi-fungible-token-trait.sip013-semi-fungible-token-trait)
 (impl-trait .sip013-transfer-many-trait.sip013-transfer-many-trait)
 

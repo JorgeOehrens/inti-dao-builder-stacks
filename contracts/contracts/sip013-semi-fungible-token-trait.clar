@@ -1,3 +1,9 @@
+;; title: sip013-semi-fungible-token-trait
+;; version:
+;; summary:
+;; description: 
+
+
 (define-trait sip013-semi-fungible-token-trait
 	(
 		;; Get a token type balance of the passed principal.

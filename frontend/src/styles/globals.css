@@ -1,0 +1,117 @@
+/* Font family */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap");
+
+/* tailwind import */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Variables */
+:root {
+  --color-header: rgba(255, 255, 255, 0.7); /* Semi-transparente para header */
+  --color-sidebar: rgba(255, 255, 255, 0.5); /* Semi-transparente para sidebar */
+  --color-sidebar-hover: rgba(255, 255, 255, 0.9); /* Hover más claro */
+  --color-sidebar-border: rgba(255, 255, 255, 0.3); /* Borde sutil */
+  --color-shadow: rgba(0, 0, 0, 0.2); /* Sombra translúcida */
+  --color-button: #ef4444; /* Color principal de botones */
+  --color-text: #333; /* Color de texto principal */
+}
+
+/**================================================== *
+ * ==========  Base Styles  ========== *
+ * ================================================== */
+@layer base {
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+
+    /* Text Defaults */
+    @apply text-[var(--color-text)] bg-[var(--color-gray-2)] min-h-screen;
+
+    scroll-behavior: smooth !important;
+  }
+
+  body {
+    @apply text-sm sm:text-lg leading-[150%] font-normal overflow-x-hidden;
+  }
+
+  /* Header background */
+  header {
+    background-color: var(--color-header);
+    backdrop-filter: blur(10px); /* Desenfoque para efecto de vidrio */
+    border-bottom: 1px solid var(--color-sidebar-border); /* Borde sutil */
+    box-shadow: 0 2px 4px var(--color-shadow); /* Sombra ligera */
+  }
+}
+
+/**================================================== *
+ * ==========  Sidebar Styles  ========== *
+ * ================================================== */
+@layer components {
+  /* Sidebar Container */
+  .sidebar {
+    background: var(--color-sidebar);
+    backdrop-filter: blur(15px); /* Efecto de vidrio */
+    border-right: 1px solid var(--color-sidebar-border);
+    box-shadow: 4px 0 10px var(--color-shadow); /* Sombra lateral */
+    height: 100vh;
+    width: 250px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Sidebar Items */
+  .sidebar-item {
+    @apply flex items-center gap-4 px-4 py-2 rounded-lg text-[var(--color-text)];
+    transition: all 0.3s ease-in-out;
+    background: transparent; /* Fondo inicial transparente */
+  }
+
+  .sidebar-item:hover {
+    background: var(--color-sidebar-hover);
+    backdrop-filter: blur(5px); /* Mayor desenfoque al hover */
+    box-shadow: 0 2px 6px var(--color-shadow); /* Sombra adicional */
+  }
+
+  .sidebar-item-active {
+    background: var(--color-sidebar-hover);
+    font-weight: bold;
+    border: 1px solid var(--color-sidebar-border);
+    box-shadow: 0 4px 8px var(--color-shadow); /* Mayor sombra para el activo */
+  }
+
+  /* Footer del Sidebar */
+  .sidebar-footer {
+    @apply flex justify-center items-center gap-4 mt-auto text-[var(--color-text)];
+  }
+
+  /* Toggle Button */
+  .toggle {
+    @apply rounded-full h-8 w-16 flex items-center justify-center bg-[var(--color-button)] text-white shadow-lg;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .toggle:hover {
+    @apply bg-[var(--color-sidebar-hover)];
+    transform: scale(1.1);
+  }
+}
+
+/**================================================== *
+ * ==========  Button Adjustments  ========== *
+ * ================================================== */
+button {
+  @apply text-white font-semibold rounded-lg px-4 py-2;
+  background-color: var(--color-button);
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 2px 4px var(--color-shadow);
+}
+
+button:hover {
+  background-color: darken(var(--color-button), 10%);
+  box-shadow: 0 4px 8px var(--color-shadow);
+}

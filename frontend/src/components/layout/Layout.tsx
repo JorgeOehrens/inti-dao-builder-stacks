@@ -6,6 +6,7 @@ import Search from "../modal/Search";
 import NavBar from "../navBar/NavBar";
 import Preloader from "../preloader/Preloader";
 import SideBar from "../sideBar/SideBar";
+import Skeleton from 'react-loading-skeleton'; // Importa Skeleton
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -27,14 +28,11 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
-      {/* Preloader */}
       <Preloader />
 
-      {/* Search */}
       <Search isOpen={isOpen} setIsOpen={setIsOpen} />
 
       <div className="flex items-start">
-        {/* Side Bar */}
         <SideBar
           showText={showText}
           setShowText={setShowText}

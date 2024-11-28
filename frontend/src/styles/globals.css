@@ -28,7 +28,7 @@
     font-family: "Inter", sans-serif;
 
     /* Text Defaults */
-    @apply text-[var(--color-text)] bg-[var(--color-gray-2)] min-h-screen;
+    @apply text-[var(--color-text)] bg-[#f9fafb] min-h-screen;
 
     scroll-behavior: smooth !important;
   }

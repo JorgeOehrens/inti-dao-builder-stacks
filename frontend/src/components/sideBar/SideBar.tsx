@@ -1,9 +1,9 @@
-import { Switch } from "@headlessui/react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Link, useLocation } from "react-router-dom";
 import { Menu } from "@headlessui/react";
+import Skeleton from 'react-loading-skeleton';
 
 // Importar Heroicons
 import {
@@ -14,8 +14,7 @@ import {
   UsersIcon,
   CheckBadgeIcon,
   ChevronDownIcon,
-  SunIcon,
-  MoonIcon,
+
 } from "@heroicons/react/24/outline";
 
 const daos = [
@@ -28,15 +27,21 @@ const SideBar = ({ showText, openSidBar, setOpenSidBar }: any) => {
   const [enabled, setEnabled] = useState(false);
   const [theme, setTheme] = useState("light");
   const [selectedDAO, setSelectedDAO] = useState(daos[0]);
+  const [loading, setLoading] = useState(true); // Add this line
 
   const responsive = useMediaQuery({ query: "(max-width: 1200px)" });
 
   const location = useLocation();
   const route = location.pathname;
 
-  const handleThemeToggle = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
+
+  useEffect(() => {
+    // Simulate a loading delay
+    setTimeout(() => {
+      setEnabled(true);
+      setLoading(false); // Add this line
+    }, 2000);
+  }, []);
 
   useEffect(() => setEnabled(true), []);
 
@@ -57,6 +62,8 @@ const SideBar = ({ showText, openSidBar, setOpenSidBar }: any) => {
         className={`fixed left-0 top-0 z-30 container overflow-y-scroll lg:overflow-auto ${
           openSidBar || !responsive ? "block" : "hidden"
         } bg-[#c7253e] px-6 pt-6 pb-10`}
+        initial={{ width: 150 }} // Add this line
+
         animate={{
           width: showText ? (responsive ? 212 : 312) : 150,
         }}
@@ -106,27 +113,28 @@ const SideBar = ({ showText, openSidBar, setOpenSidBar }: any) => {
             <div className="mt-6">
               <ul>
                 {[
-                  { name: "Dashboard", path: "/", icon: <HomeIcon /> },
-                  { name: "Road Map", path: "/road-map", icon: <MapIcon /> },
-                  { name: "Governance", path: "/governance", icon: <ShieldCheckIcon /> },
-                  { name: "Finance", path: "/finance", icon: <BanknotesIcon /> },
-                  { name: "Members", path: "/members", icon: <UsersIcon /> },
-                  { name: "Vote", path: "/vote", icon: <CheckBadgeIcon /> },
+                  { name: "Dashboard", path: "/Dashboard", icon: <HomeIcon /> },
+                  { name: "Road Map", path: "/Dashboard/road-map", icon: <MapIcon /> },
+                  { name: "Governance", path: "/Dashboard/governance", icon: <ShieldCheckIcon /> },
+                  { name: "Finance", path: "/Dashboard/finance", icon: <BanknotesIcon /> },
+                  { name: "Members", path: "/Dashboard/members", icon: <UsersIcon /> },
+                  { name: "Vote", path: "/Dashboard/vote", icon: <CheckBadgeIcon /> },
                 ].map((item) => (
                   <li key={item.path} className="pb-3">
                     <Link
                       to={item.path}
-                      className={`flex items-center justify-between gap-2 p-3 rounded-lg ${
+                      className={`flex items-center gap-2 p-3 rounded-lg ${
                         route === item.path ? "bg-[#ef4444] text-white" : "text-white"
                       } hover:bg-[#ef4444] transition-colors duration-300`}
                       onClick={() => setOpenSidBar(false)}
                     >
+                               <span className="h-8 w-8 text-white">
+                        {item.icon}
+                      </span>
                       <span className="font-semibold text-[16px] leading-[130%]">
                         {item.name}
                       </span>
-                      <span className="h-8 w-8 text-white">
-                        {item.icon}
-                      </span>
+             
                     </Link>
                   </li>
                 ))}
@@ -134,28 +142,7 @@ const SideBar = ({ showText, openSidBar, setOpenSidBar }: any) => {
             </div>
           </div>
 
-          {/* Tema */}
-          <div className="flex items-center justify-center gap-1 mt-10">
-            <SunIcon className="h-8 w-8 text-white" />
-            <Switch
-              checked={enabled}
-              onChange={handleThemeToggle}
-              className={`${
-                theme === "light" ? "border-white" : "border-gray-200"
-              } relative inline-flex h-[20px] w-[40px] shrink-0 cursor-pointer rounded-full border-2 transition-colors duration-200 ease-in-out`}
-            >
-              <span className="sr-only">Use Setting</span>
-              <span
-                aria-hidden="true"
-                className={`${
-                  theme !== "light"
-                    ? "translate-x-[20px] bg-white"
-                    : "translate-x-0 bg-gray-700"
-                } pointer-events-none inline-block h-[16px] w-[16px] transform rounded-full shadow-lg ring-0 transition duration-200 ease-in-out`}
-              ></span>
-            </Switch>
-            <MoonIcon className="h-8 w-8 text-white" />
-          </div>
+ 
         </div>
       </motion.section>
     </>

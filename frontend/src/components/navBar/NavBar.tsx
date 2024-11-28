@@ -17,6 +17,9 @@ const NavBar = ({
   setOpenSidBar,
   openSidBar,
 }: NavbarProps) => {
+  const closeMenu = () => {
+    setOpenSidBar(false);
+  };
   return (
     <nav className="sticky top-0 left-0 z-50 px-4 lg:px-10 py-4 shadow-md bg-[#c7253e] text-white">
       <div className="flex justify-between items-center">
@@ -42,6 +45,7 @@ const NavBar = ({
         <div className="flex items-center gap-6">
           <button
             type="button"
+            onClick={closeMenu} // Agregamos la función closeMenu aquí
             className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md group"
           >
             <BoltIcon className="h-6 w-6 text-[#c7253e] group-hover:scale-110 transition-transform duration-300" />

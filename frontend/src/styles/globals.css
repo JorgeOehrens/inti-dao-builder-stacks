@@ -28,7 +28,7 @@
     font-family: "Inter", sans-serif;
 
     /* Text Defaults */
-    @apply text-[var(--color-text)] bg-[#f9fafb] min-h-screen;
+    @apply text-[var(--color-text)] bg-[var(--color-gray-2)] min-h-screen;
 
     scroll-behavior: smooth !important;
   }
@@ -114,4 +114,38 @@ button {
 button:hover {
   background-color: darken(var(--color-button), 10%);
   box-shadow: 0 4px 8px var(--color-shadow);
+}
+
+.calendar-custom {
+  font-family: 'Inter', sans-serif;
+}
+
+.rbc-calendar {
+  border: 1px solid #e5e7eb; /* Tailwind gray-200 */
+  border-radius: 0.75rem; /* Rounded corners */
+}
+
+.rbc-toolbar {
+  background-color: rgba(239, 68, 68, 0.1); /* Soft red */
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #ef4444; /* Tailwind red-500 */
+}
+
+.rbc-header {
+  font-weight: 600;
+  color: #4b5563; /* Tailwind gray-700 */
+}
+
+.rbc-event {
+  background-color: #ef4444; /* Tailwind red-500 */
+  color: white;
+  border-radius: 0.5rem;
+  padding: 2px 4px;
+  font-size: 0.875rem; /* Tailwind text-sm */
+}
+
+.rbc-today {
+  background-color: rgba(239, 68, 68, 0.1); /* Highlight for today */
 }

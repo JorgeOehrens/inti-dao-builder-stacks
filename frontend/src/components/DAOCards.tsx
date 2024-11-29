@@ -58,7 +58,7 @@ function DAOCards() {
             if (name === "N/A") return null;
 
             return (
-              <Link to={`/dashboard/${index}`} key={index}>
+              <Link to={`/dashboard`} key={index}>
                 <div
                   key={index}
                   className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300"

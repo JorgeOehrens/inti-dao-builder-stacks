@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Link, useLocation } from "react-router-dom";
 import { Menu } from "@headlessui/react";
-import Skeleton from 'react-loading-skeleton';
 
 // Importar Heroicons
 import {
@@ -25,9 +24,8 @@ const daos = [
 
 const SideBar = ({ showText, openSidBar, setOpenSidBar }: any) => {
   const [enabled, setEnabled] = useState(false);
-  const [theme, setTheme] = useState("light");
   const [selectedDAO, setSelectedDAO] = useState(daos[0]);
-  const [loading, setLoading] = useState(true); // Add this line
+  const [, setLoading] = useState(true); // Add this line
 
   const responsive = useMediaQuery({ query: "(max-width: 1200px)" });
 

@@ -57,6 +57,7 @@ function Header() {
       <nav className="flex space-x-4">
         <Link
           to="/dashboard"
+
           className="text-white font-semibold px-4 py-2 rounded hover:underline"
         >
           🌎 DAOs

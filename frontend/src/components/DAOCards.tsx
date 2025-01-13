@@ -59,6 +59,7 @@ function DAOCards() {
 
             return (
               <Link to={`/dashboard`} key={index}>
+
                 <div
                   key={index}
                   className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300"

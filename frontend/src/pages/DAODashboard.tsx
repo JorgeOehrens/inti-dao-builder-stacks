@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { UserSession, AppConfig, showConnect } from "@stacks/connect";
+import { UserSession, AppConfig, showConnect, openContractCall } from "@stacks/connect";
 import { StacksTestnet } from "@stacks/network";
 import {
   callReadOnlyFunction,
   uintCV,
   standardPrincipalCV,
 } from "@stacks/transactions";
-import { openContractCall } from "@stacks/connect";
 import styles from "./DAODashboard.module.css";
-
 const appConfig = new AppConfig(["store_write", "publish_data"]);
 const userSession = new UserSession({ appConfig });
 
@@ -155,15 +153,16 @@ const DAODashboard: React.FC = () => {
 
   return (
     <div className={styles.dashboardContainer}>
-      <div className={styles.sidebar}>
-        <h2>{daoData?.value?.data["name-dao"]?.data || "DAO Dashboard"}</h2>
-        <nav>
-          <button>Overview</button>
-          <button>Members</button>
-          <button>Transactions</button>
-          <button>Proposals</button>
-        </nav>
-      </div>
+
+        <div className={styles.sidebar}>
+          <h2>{daoData?.value?.data["name-dao"]?.data || "DAO Dashboard"}</h2>
+          <nav>
+            <button>Overview</button>
+            <button>Members</button>
+            <button>Transactions</button>
+            <button>Proposals</button>
+          </nav>
+        </div>
 
       <div className={styles.centralPanel}>
         <div className={styles.glassContainer}>
@@ -178,10 +177,6 @@ const DAODashboard: React.FC = () => {
               {daoData?.value?.data["description"]?.data || "Loading..."}
             </p>
 
-            <p>
-              ENS Subdomain:{" "}
-              {daoData?.value?.data["ens-subdomain"]?.data || "Loading..."}
-            </p>
             <p>
               Privacy DAO:{" "}
               {daoData?.value?.data["privacy-dao"]?.data || "Loading..."}

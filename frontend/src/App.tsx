@@ -11,6 +11,8 @@ import Home from "./pages/Home.tsx";
 import DAOFeed from "./pages/DAOFeed/DAOFeed"; 
 import DAOList from './components/DAOList.tsx';
 import DAODashboard from './pages/DAODashboard.tsx';
+import Dashboard from "./pages/Dashboard.tsx";
+import RoadMap from "./pages/RoadMap.tsx";
 import Tokens from "./pages/Tokens";   
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -37,6 +39,14 @@ function App() {
         <Route path="/confirmation" element={<ConfirmationPage />} />
         <Route path="/daofeed" element={<DAOFeed />} />
         <Route path="/dashboard/:daoId" element={<DAODashboard />} /> 
+        <Route path="/dashboard" element={<Dashboard />} /> 
+        <Route path="/dashboard/road-map" element={<RoadMap />} /> 
+
+        <Route path="/dashboard/governance" element={<RoadMap />} /> 
+        <Route path="/dashboard/finance" element={<RoadMap />} /> 
+        <Route path="/dashboard/members" element={<RoadMap />} /> 
+        <Route path="/dashboard/vote" element={<RoadMap />} /> 
+
         <Route path="/tokens" element={<Tokens />} />
         <Route path="/" element={<DAOList />} />
         <Route path="/dao/mountain-adventure" element={<DAODashboard />} />
